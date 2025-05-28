@@ -425,31 +425,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span>
-
-<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;embed src=&quot;Lecture2_notes.pdf&quot; width=&quot;800&quot; height=&quot;600&quot; type=&quot;application/pdf&quot;&gt;&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><embed src="Lecture2_notes.pdf" width="800" height="600" type="application/pdf"></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">webbrowser</span>
-<span class="n">webbrowser</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;Lecture2_notes.pdf&#39;</span><span class="p">)</span> 
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
-</pre></div>
-</div>
-</div>
-</div>
-<p><a class="reference download internal" download="" href="../../_downloads/7c71a531169c59f7611c14aa6d5b74e6/Lecture2_notes.pdf"><span class="xref download myst">📄 Download the slides (PDF)</span></a></p>
+  <p><a class="reference download internal" download="" href="../../_downloads/7c71a531169c59f7611c14aa6d5b74e6/Lecture2_notes.pdf"><span class="xref download myst">📄 Download lecture notes (PDF)</span></a></p>
 <section class="tex2jax_ignore mathjax_ignore" id="data-preprocessing-example">
 <h1><span class="section-number">1. </span>Data preprocessing example<a class="headerlink" href="#data-preprocessing-example" title="Link to this heading">#</a></h1>
 <section id="import-the-relevant-libraries">
@@ -1215,7 +1191,7 @@ dtype: int64
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">data_no_mv_m2</span> <span class="o">=</span> <span class="n">data_interest</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Imputer</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">imp</span> <span class="o">=</span> <span class="n">Imputer</span><span class="p">(</span><span class="n">missing_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
