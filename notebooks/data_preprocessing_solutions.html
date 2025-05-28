@@ -440,87 +440,306 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">File /opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/site-packages/pandas/compat/_optional.py:135,</span> in <span class="ni">import_optional_dependency</span><span class="nt">(name, extra, errors, min_version)</span>
-<span class="g g-Whitespace">    </span><span class="mi">134</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">135</span>     <span class="n">module</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/importlib/__init__.py:126,</span> in <span class="ni">import_module</span><span class="nt">(name, package)</span>
-<span class="g g-Whitespace">    </span><span class="mi">125</span>         <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="ne">--&gt; </span><span class="mi">126</span> <span class="k">return</span> <span class="n">_bootstrap</span><span class="o">.</span><span class="n">_gcd_import</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">level</span><span class="p">:],</span> <span class="n">package</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1050,</span> in <span class="ni">_gcd_import</span><span class="nt">(name, package, level)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1027,</span> in <span class="ni">_find_and_load</span><span class="nt">(name, import_)</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1004,</span> in <span class="ni">_find_and_load_unlocked</span><span class="nt">(name, import_)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;openpyxl&#39;
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">raw_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;cheese_taste.xlsx&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">raw_data</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/site-packages/pandas/io/excel/_base.py:495,</span> in <span class="ni">read_excel</span><span class="nt">(io, sheet_name, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, parse_dates, date_parser, date_format, thousands, decimal, comment, skipfooter, storage_options, dtype_backend, engine_kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">493</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="n">ExcelFile</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">494</span>     <span class="n">should_close</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="ne">--&gt; </span><span class="mi">495</span>     <span class="n">io</span> <span class="o">=</span> <span class="n">ExcelFile</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">496</span>         <span class="n">io</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">497</span>         <span class="n">storage_options</span><span class="o">=</span><span class="n">storage_options</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">498</span>         <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">499</span>         <span class="n">engine_kwargs</span><span class="o">=</span><span class="n">engine_kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">500</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">501</span> <span class="k">elif</span> <span class="n">engine</span> <span class="ow">and</span> <span class="n">engine</span> <span class="o">!=</span> <span class="n">io</span><span class="o">.</span><span class="n">engine</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">502</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">503</span>         <span class="s2">&quot;Engine should not be specified when passing &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">504</span>         <span class="s2">&quot;an ExcelFile - ExcelFile already has the engine set&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">505</span>     <span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/site-packages/pandas/io/excel/_base.py:1567,</span> in <span class="ni">ExcelFile.__init__</span><span class="nt">(self, path_or_buffer, engine, storage_options, engine_kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1564</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span> <span class="o">=</span> <span class="n">engine</span>
-<span class="g g-Whitespace">   </span><span class="mi">1565</span> <span class="bp">self</span><span class="o">.</span><span class="n">storage_options</span> <span class="o">=</span> <span class="n">storage_options</span>
-<span class="ne">-&gt; </span><span class="mi">1567</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engines</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span>
-<span class="g g-Whitespace">   </span><span class="mi">1568</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_io</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1569</span>     <span class="n">storage_options</span><span class="o">=</span><span class="n">storage_options</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1570</span>     <span class="n">engine_kwargs</span><span class="o">=</span><span class="n">engine_kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1571</span> <span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/site-packages/pandas/io/excel/_openpyxl.py:552,</span> in <span class="ni">OpenpyxlReader.__init__</span><span class="nt">(self, filepath_or_buffer, storage_options, engine_kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">534</span> <span class="nd">@doc</span><span class="p">(</span><span class="n">storage_options</span><span class="o">=</span><span class="n">_shared_docs</span><span class="p">[</span><span class="s2">&quot;storage_options&quot;</span><span class="p">])</span>
-<span class="g g-Whitespace">    </span><span class="mi">535</span> <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">536</span>     <span class="bp">self</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">539</span>     <span class="n">engine_kwargs</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">540</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">541</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">542</span><span class="sd">     Reader using openpyxl engine.</span>
-<span class="g g-Whitespace">    </span><span class="mi">543</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">550</span><span class="sd">         Arbitrary keyword arguments passed to excel engine.</span>
-<span class="g g-Whitespace">    </span><span class="mi">551</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">552</span>     <span class="n">import_optional_dependency</span><span class="p">(</span><span class="s2">&quot;openpyxl&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">553</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">554</span>         <span class="n">filepath_or_buffer</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">555</span>         <span class="n">storage_options</span><span class="o">=</span><span class="n">storage_options</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">556</span>         <span class="n">engine_kwargs</span><span class="o">=</span><span class="n">engine_kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">557</span>     <span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/site-packages/pandas/compat/_optional.py:138,</span> in <span class="ni">import_optional_dependency</span><span class="nt">(name, extra, errors, min_version)</span>
-<span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">137</span>     <span class="k">if</span> <span class="n">errors</span> <span class="o">==</span> <span class="s2">&quot;raise&quot;</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">138</span>         <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">139</span>     <span class="k">return</span> <span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">141</span> <span class="c1"># Handle submodules: if we have submodule, grab parent module from sys.modules</span>
-
-<span class="ne">ImportError</span>: Missing optional dependency &#39;openpyxl&#39;.  Use pip or conda to install openpyxl.
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sample</th>
+      <th>Acetic</th>
+      <th>Animal</th>
+      <th>H2S</th>
+      <th>Lactic</th>
+      <th>Taste</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>4.543</td>
+      <td>sheep</td>
+      <td>3.135</td>
+      <td>0.86</td>
+      <td>12.30</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>5.159</td>
+      <td>sheep</td>
+      <td>5.043</td>
+      <td>1.53</td>
+      <td>20.90</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>5.366</td>
+      <td>cow</td>
+      <td>5.438</td>
+      <td>1.57</td>
+      <td>39.00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>5.759</td>
+      <td>sheep</td>
+      <td>7.496</td>
+      <td>1.81</td>
+      <td>47.90</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>4.663</td>
+      <td>cow</td>
+      <td>3.807</td>
+      <td>0.99</td>
+      <td>5.60</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>5.697</td>
+      <td>goat</td>
+      <td>7.601</td>
+      <td>1.09</td>
+      <td>25.90</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>5.892</td>
+      <td>cow</td>
+      <td>8.726</td>
+      <td>1.29</td>
+      <td>37.30</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>6.078</td>
+      <td>cow</td>
+      <td>7.966</td>
+      <td>1.78</td>
+      <td>21.90</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>4.898</td>
+      <td>sheep</td>
+      <td>3.850</td>
+      <td>1.29</td>
+      <td>18.10</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>5.242</td>
+      <td>sheep</td>
+      <td>4.174</td>
+      <td>1.58</td>
+      <td>21.00</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>5.740</td>
+      <td>goat</td>
+      <td>6.142</td>
+      <td>1.68</td>
+      <td>34.90</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>6.446</td>
+      <td>goat</td>
+      <td>7.908</td>
+      <td>1.90</td>
+      <td>57.20</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>4.477</td>
+      <td>sheep</td>
+      <td>2.996</td>
+      <td>NaN</td>
+      <td>0.70</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>5.236</td>
+      <td>sheep</td>
+      <td>4.942</td>
+      <td>1.30</td>
+      <td>25.90</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>15</td>
+      <td>6.151</td>
+      <td>NaN</td>
+      <td>6.752</td>
+      <td>1.52</td>
+      <td>54.90</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>16</td>
+      <td>6.365</td>
+      <td>sheep</td>
+      <td>9.588</td>
+      <td>1.74</td>
+      <td>40.90</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>17</td>
+      <td>4.787</td>
+      <td>cow</td>
+      <td>3.912</td>
+      <td>NaN</td>
+      <td>15.90</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>18</td>
+      <td>15.213</td>
+      <td>goat</td>
+      <td>4.700</td>
+      <td>1.49</td>
+      <td>6.40</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>19</td>
+      <td>5.247</td>
+      <td>sheep</td>
+      <td>6.174</td>
+      <td>1.63</td>
+      <td>18.00</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>20</td>
+      <td>5.438</td>
+      <td>NaN</td>
+      <td>9.064</td>
+      <td>1.99</td>
+      <td>38.90</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>21</td>
+      <td>4.564</td>
+      <td>goat</td>
+      <td>4.949</td>
+      <td>NaN</td>
+      <td>14.00</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>22</td>
+      <td>5.298</td>
+      <td>sheep</td>
+      <td>5.220</td>
+      <td>1.33</td>
+      <td>15.20</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>23</td>
+      <td>5.455</td>
+      <td>goat</td>
+      <td>9.242</td>
+      <td>1.44</td>
+      <td>32.00</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>24</td>
+      <td>5.855</td>
+      <td>sheep</td>
+      <td>10.199</td>
+      <td>2.00</td>
+      <td>56.71</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>25</td>
+      <td>5.366</td>
+      <td>goat</td>
+      <td>3.664</td>
+      <td>1.31</td>
+      <td>16.80</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>26</td>
+      <td>12.052</td>
+      <td>cow</td>
+      <td>3.219</td>
+      <td>1.46</td>
+      <td>11.60</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>27</td>
+      <td>6.458</td>
+      <td>sheep</td>
+      <td>6.962</td>
+      <td>1.72</td>
+      <td>26.50</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>28</td>
+      <td>5.328</td>
+      <td>cow</td>
+      <td>3.912</td>
+      <td>1.25</td>
+      <td>0.70</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>29</td>
+      <td>5.802</td>
+      <td>goat</td>
+      <td>6.685</td>
+      <td>1.08</td>
+      <td>13.40</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>30</td>
+      <td>6.176</td>
+      <td>cow</td>
+      <td>4.787</td>
+      <td>1.25</td>
+      <td>5.50</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 <section id="explore-the-descriptive-statistics-of-the-variables">
@@ -533,17 +752,17 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -674,17 +893,17 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -822,17 +1041,17 @@ dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
@@ -958,275 +1177,18 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">data_no_mv_m2</span> <span class="o">=</span> <span class="n">data_interest</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Imputer</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">imp</span> <span class="o">=</span> <span class="n">Imputer</span><span class="p">(</span><span class="n">missing_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">lactic</span> <span class="o">=</span> <span class="n">data_interest</span><span class="p">[</span><span class="s1">&#39;Lactic&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Acetic</th>
-      <th>Animal</th>
-      <th>H2S</th>
-      <th>Lactic</th>
-      <th>Taste</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>4.543</td>
-      <td>sheep</td>
-      <td>3.135</td>
-      <td>0.860000</td>
-      <td>12.30</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>5.159</td>
-      <td>sheep</td>
-      <td>5.043</td>
-      <td>1.530000</td>
-      <td>20.90</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>5.366</td>
-      <td>cow</td>
-      <td>5.438</td>
-      <td>1.570000</td>
-      <td>39.00</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>5.759</td>
-      <td>sheep</td>
-      <td>7.496</td>
-      <td>1.810000</td>
-      <td>47.90</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>4.663</td>
-      <td>cow</td>
-      <td>3.807</td>
-      <td>0.990000</td>
-      <td>5.60</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>5.697</td>
-      <td>goat</td>
-      <td>7.601</td>
-      <td>1.090000</td>
-      <td>25.90</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>5.892</td>
-      <td>cow</td>
-      <td>8.726</td>
-      <td>1.290000</td>
-      <td>37.30</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>6.078</td>
-      <td>cow</td>
-      <td>7.966</td>
-      <td>1.780000</td>
-      <td>21.90</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>4.898</td>
-      <td>sheep</td>
-      <td>3.850</td>
-      <td>1.290000</td>
-      <td>18.10</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>5.242</td>
-      <td>sheep</td>
-      <td>4.174</td>
-      <td>1.580000</td>
-      <td>21.00</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>5.740</td>
-      <td>goat</td>
-      <td>6.142</td>
-      <td>1.680000</td>
-      <td>34.90</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>6.446</td>
-      <td>goat</td>
-      <td>7.908</td>
-      <td>1.900000</td>
-      <td>57.20</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>4.477</td>
-      <td>sheep</td>
-      <td>2.996</td>
-      <td>1.477037</td>
-      <td>0.70</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>5.236</td>
-      <td>sheep</td>
-      <td>4.942</td>
-      <td>1.300000</td>
-      <td>25.90</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>6.151</td>
-      <td>NaN</td>
-      <td>6.752</td>
-      <td>1.520000</td>
-      <td>54.90</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>6.365</td>
-      <td>sheep</td>
-      <td>9.588</td>
-      <td>1.740000</td>
-      <td>40.90</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>4.787</td>
-      <td>cow</td>
-      <td>3.912</td>
-      <td>1.477037</td>
-      <td>15.90</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>15.213</td>
-      <td>goat</td>
-      <td>4.700</td>
-      <td>1.490000</td>
-      <td>6.40</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>5.247</td>
-      <td>sheep</td>
-      <td>6.174</td>
-      <td>1.630000</td>
-      <td>18.00</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>5.438</td>
-      <td>NaN</td>
-      <td>9.064</td>
-      <td>1.990000</td>
-      <td>38.90</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>4.564</td>
-      <td>goat</td>
-      <td>4.949</td>
-      <td>1.477037</td>
-      <td>14.00</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>5.298</td>
-      <td>sheep</td>
-      <td>5.220</td>
-      <td>1.330000</td>
-      <td>15.20</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>5.455</td>
-      <td>goat</td>
-      <td>9.242</td>
-      <td>1.440000</td>
-      <td>32.00</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>5.855</td>
-      <td>sheep</td>
-      <td>10.199</td>
-      <td>2.000000</td>
-      <td>56.71</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>5.366</td>
-      <td>goat</td>
-      <td>3.664</td>
-      <td>1.310000</td>
-      <td>16.80</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>12.052</td>
-      <td>cow</td>
-      <td>3.219</td>
-      <td>1.460000</td>
-      <td>11.60</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>6.458</td>
-      <td>sheep</td>
-      <td>6.962</td>
-      <td>1.720000</td>
-      <td>26.50</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>5.328</td>
-      <td>cow</td>
-      <td>3.912</td>
-      <td>1.250000</td>
-      <td>0.70</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>5.802</td>
-      <td>goat</td>
-      <td>6.685</td>
-      <td>1.080000</td>
-      <td>13.40</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>6.176</td>
-      <td>cow</td>
-      <td>4.787</td>
-      <td>1.250000</td>
-      <td>5.50</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<span class="ne">ImportError</span>: cannot import name &#39;Imputer&#39; from &#39;sklearn.preprocessing&#39; (/opt/hostedtoolcache/Python/3.10.17/x64/lib/python3.10/site-packages/sklearn/preprocessing/__init__.py)
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="method-3-impute-the-missing-values-using-interpolation-applicable-to-numerical-variables">
