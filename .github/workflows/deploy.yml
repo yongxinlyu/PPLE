@@ -13,6 +13,8 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v3
 
+
+
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
@@ -20,7 +22,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install -U jupyter-book ghp-import
+        pip install -r requirements.txt
 
     - name: Build the book
       run: |
