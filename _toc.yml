@@ -1,0 +1,18 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+
+parts:
+- caption: Course Details
+  numbered: false
+  chapters:  
+  - file: Details/Contents
+  - file: Details/Learning  
+  - file: Details/Resources
+- caption: Notebooks
+  numbered: true
+  chapters:
+  - file: notebooks/data_preprocessing_solutions
+  - file: notebooks/Lecture2_data_preprocessing
