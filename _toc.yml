@@ -8,9 +8,10 @@ parts:
 - caption: Social Club Info
   numbered: false
   chapters:  
-  - file: Info/Contents
-  - file: Info/Learning  
-  - file: Info/Resources
+  - file: Info/getting_started
+  - file: Info/about_the_organizer
+  - file: Info/faq
+  
 - caption: Learning Resources
   numbered: false
   chapters:
