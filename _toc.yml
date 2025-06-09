@@ -5,12 +5,12 @@ format: jb-book
 root: intro
 
 parts:
-- caption: Course Details
+- caption: Social Club Info
   numbered: false
   chapters:  
-  - file: Details/Contents
-  - file: Details/Learning  
-  - file: Details/Resources
+  - file: Info/Contents
+  - file: Info/Learning  
+  - file: Info/Resources
 - caption: Notebooks
   numbered: true
   chapters:
