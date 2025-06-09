@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>K-means clustering &#8212; My sample book</title>
+    <title>K-means clustering &#8212; Personalised Programming Language Enhancement</title>
   
   
   
@@ -153,8 +153,8 @@
       
     
     
-    <img src="../../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Personalised Programming Language Enhancement - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Personalised Programming Language Enhancement - Home"/>`);</script>
   
   
 </a></div>
@@ -246,47 +246,82 @@
 
 
 
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
   <ul class="dropdown-menu">
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
+      <li><a href="https://mybinder.org/v2/gh/yongxinlyu/PPLE/main?urlpath=tree/lectures/lecture_7/Lecture7_K-means_clustering.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/yongxinlyu/PPLE/blob/main/lectures/lecture_7/Lecture7_K-means_clustering.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/yongxinlyu/PPLE" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flectures/lecture_7/Lecture7_K-means_clustering.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
 
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
 </a>
-</li>
-      
-  </ul>
-</div>
 
 
 
@@ -1270,7 +1305,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3, 5, 1, 2, 4, 3, 0], dtype=int32)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 5, 1, 2, 4, 0, 3], dtype=int32)
 </pre></div>
 </div>
 </div>
@@ -1314,7 +1349,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
       <td>Sydney</td>
       <td>-33.8688</td>
       <td>151.2093</td>
-      <td>3</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
@@ -1349,14 +1384,14 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
       <td>Canberra</td>
       <td>-35.2809</td>
       <td>149.1300</td>
-      <td>3</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>6</th>
       <td>Adelaide</td>
       <td>-34.9285</td>
       <td>138.6007</td>
-      <td>0</td>
+      <td>3</td>
     </tr>
   </tbody>
 </table>
@@ -1372,7 +1407,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/18181e2421b7b018a4a499139548c3cab6d55f1a7f51705e263cbf87aaf4a9e9.png" src="../../_images/18181e2421b7b018a4a499139548c3cab6d55f1a7f51705e263cbf87aaf4a9e9.png" />
+<img alt="../../_images/de21f40c880f978dfb40f84437275104356f6773fda86f26baa4d17117e1caef.png" src="../../_images/de21f40c880f978dfb40f84437275104356f6773fda86f26baa4d17117e1caef.png" />
 </div>
 </div>
 </section>
@@ -1416,8 +1451,8 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1513.780895985715,
  494.2862683500002,
  192.13612414000042,
- 83.31280029333341,
- 42.24897758666674,
+ 101.14140983750028,
+ 28.22386709333342,
  3.1587574500000404,
  0.0]
 </pre></div>
@@ -1440,7 +1475,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3a9d417b01b64b15a311eb425143384db72cee53fee70011f8f8dfd40be387b2.png" src="../../_images/3a9d417b01b64b15a311eb425143384db72cee53fee70011f8f8dfd40be387b2.png" />
+<img alt="../../_images/ffc19c4730a2e0907728633dc71b92c2055da3a2fe5e957d839efba02470689f.png" src="../../_images/ffc19c4730a2e0907728633dc71b92c2055da3a2fe5e957d839efba02470689f.png" />
 </div>
 </div>
 </section>
@@ -1451,8 +1486,8 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "yongxinlyu/PPLE",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -1521,7 +1556,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Yongxin Lyu
 </p>
 
   </div>
