@@ -1,10 +1,14 @@
-# About PPLE
+# Home
 
-Personalised Programming Language Enhancement (PPLE) is a creative and collaborative social club designed for learners who want to take their programming skills to the next level—especially in Python.
+Hello and welcome to the **Coding Club for Dummies**!
+This is a friendly space where you can learn and play with coding — whether you’re starting from zero or already have some experience.
 
-At PPLE, participants work on personalized coding projects based on their interests—whether it’s web development, automation, data science, game design, or something entirely unique. With mentorship, peer feedback, and flexible goals, members grow not only their coding proficiency but also their ability to think like developers.
+I’m **Yongxin**, your club host. I’ve been coding for about 5 years, mostly self-taught, and I still think of coding as a *special* language — one that’s sometimes easier for me to “speak” than English! I believe anyone can learn to code, and it’s even more fun when we do it together.
 
-This is a space for exploration, experimentation, and expression through code.
+Thanks to the **PELE program**, I get to share this journey with you. Let’s discover how coding can be creative, practical, and a little bit magical
+
+Curious about me? Learn more [here](https://yongxinlyu.github.io).
+
 
 ```{tableofcontents}
 ```

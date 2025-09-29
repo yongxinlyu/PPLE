@@ -4,16 +4,11 @@
 format: jb-book
 root: intro
 
-parts:
-- caption: Social Club Info
-  numbered: false
-  chapters:  
-  - file: Info/getting_started
-  - file: Info/about_the_organizer
-  - file: Info/faq
-  
+parts:  
 - caption: Learning Resources
   numbered: false
   chapters:
+  - file: learning_resources/getting-started
   - file: learning_resources/python-basics
   - file: learning_resources/plot-figures
+  - file: learning_resources/turtle-animation
