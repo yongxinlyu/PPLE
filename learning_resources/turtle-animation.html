@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Plotting figures &#8212; Personalised Programming Language Enhancement</title>
+    <title>&lt;no title&gt; &#8212; Personalised Programming Language Enhancement</title>
   
   
   
@@ -57,10 +57,9 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'learning_resources/plot-figures';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'learning_resources/turtle-animation';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Python basics" href="python-basics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,6 +121,8 @@
     <div class="bd-container__inner bd-page-width">
       
       
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -185,9 +186,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../Info/faq.html">FAQ</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Learning Resources</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="python-basics.html">Python basics</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Plotting figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot-figures.html">Plotting figures</a></li>
 </ul>
 
     </div>
@@ -242,7 +243,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/yongxinlyu/PPLE/main?urlpath=tree/learning_resources/plot-figures.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/yongxinlyu/PPLE/main?urlpath=tree/learning_resources/turtle-animation.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -260,7 +261,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/yongxinlyu/PPLE/blob/main/learning_resources/plot-figures.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/yongxinlyu/PPLE/blob/main/learning_resources/turtle-animation.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -324,7 +325,7 @@
       
       
       
-      <li><a href="../_sources/learning_resources/plot-figures.ipynb" target="_blank"
+      <li><a href="../_sources/learning_resources/turtle-animation.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -395,7 +396,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -406,11 +409,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Plotting figures</h1>
+    <h1><no title></h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -420,38 +431,144 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="plotting-figures">
-<h1>Plotting figures<a class="headerlink" href="#plotting-figures" title="Link to this heading">#</a></h1>
-<div class="cell docutils container">
+  <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot a simple sin function with seaborn</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;sin(x)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sine Function&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;sin(x)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>ColabTurtlePlus
+<span class="kn">from</span><span class="w"> </span><span class="nn">ColabTurtlePlus.Turtle</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="n">initializeTurtle</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/fbc1d326baa8fe6bbc969fa586538f0b2a4616a137de47731871a7a3b669a338.png" src="../_images/fbc1d326baa8fe6bbc969fa586538f0b2a4616a137de47731871a7a3b669a338.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting ColabTurtlePlus
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading ColabTurtlePlus-2.0.1-py3-none-any.whl.metadata (10 kB)
+Downloading ColabTurtlePlus-2.0.1-py3-none-any.whl (31 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: ColabTurtlePlus
+Successfully installed ColabTurtlePlus-2.0.1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Put clearscreen() as the first line in a cell (after the import command) to re-run turtle commands in the cell
+</pre></div>
+</div>
+<div class="output text_html">
+      <svg width="800" height="600">  
+        <rect width="100%" height="100%" style="fill:black;stroke:;stroke-width:1"/>
+        
+        
+        <path d="M 400.0 300.0 A -80 -80 0 0 1 240.0 300.0" stroke-linecap="round" 
+            fill="transparent" fill-opacity="0" style="stroke:violet;stroke-width:10"/><path d="M 390.0 300.0 A -90 -90 0 0 1 210.0 300.0" stroke-linecap="round" 
+            fill="transparent" fill-opacity="0" style="stroke:indigo;stroke-width:10"/><path d="M 380.0 300.0 A -100 -100 0 0 1 180.0 300.0" stroke-linecap="round" 
+            fill="transparent" fill-opacity="0" style="stroke:blue;stroke-width:10"/><path d="M 370.0 300.0 A -110 -110 0 0 1 150.0 300.0" stroke-linecap="round" 
+            fill="transparent" fill-opacity="0" style="stroke:green;stroke-width:10"/><path d="M 360.0 300.0 A -120 -120 0 0 1 120.0 300.0" stroke-linecap="round" 
+            fill="transparent" fill-opacity="0" style="stroke:yellow;stroke-width:10"/><path d="M 350.0 300.0 A -130 -130 0 0 1 90.0 300.0" stroke-linecap="round" 
+            fill="transparent" fill-opacity="0" style="stroke:orange;stroke-width:10"/><path d="M 340.0 300.0 A -140 -140 0 0 1 60.0 300.0" stroke-linecap="round" 
+            fill="transparent" fill-opacity="0" style="stroke:red;stroke-width:10"/>
+        
+        
+        <g id="classic" visibility="hidden" transform="rotate(0.0,330.0,300.0) translate(330.0, 300.0)">
+<polygon points="-5,-4.5 0,-2.5 5,-4.5 0,4.5" transform="skewX(0) scale(1,1)" style="stroke:red;fill:black;stroke-width:1" />
+</g>
+      </svg>
+    </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">initializeTurtle</span><span class="p">()</span> <span class="c1">#window=(200,200)</span>
+</pre></div>
 </div>
 </div>
-</section>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reset</span><span class="p">()</span>
+<span class="n">speed</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">forward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reset</span><span class="p">()</span>
+<span class="n">speed</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">pencolor</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">36</span><span class="p">):</span>   <span class="c1"># 36 times, 10° each = full circle</span>
+    <span class="n">forward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">backward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">right</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reset</span><span class="p">()</span>
+<span class="n">speed</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">pensize</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">bgcolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>  <span class="c1"># start facing downward, like your original</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">semi_circle</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">rad</span><span class="p">,</span> <span class="n">x_pos</span><span class="p">):</span>
+    <span class="n">pencolor</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+    <span class="c1"># Use negative radius to draw clockwise; extent stays positive</span>
+    <span class="n">circle</span><span class="p">(</span><span class="o">-</span><span class="n">rad</span><span class="p">,</span> <span class="mi">180</span><span class="p">)</span>
+    <span class="n">penup</span><span class="p">()</span>
+    <span class="n">goto</span><span class="p">(</span><span class="n">x_pos</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">pendown</span><span class="p">()</span>
+    <span class="n">right</span><span class="p">(</span><span class="mi">180</span><span class="p">)</span>  <span class="c1"># match your original flip</span>
+
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;violet&#39;</span><span class="p">,</span> <span class="s1">&#39;indigo&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">colors</span><span class="p">):</span>
+    <span class="n">semi_circle</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">10</span><span class="o">*</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">8</span><span class="p">),</span> <span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="n">hideturtle</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clearscreen</span><span class="p">()</span>
+<span class="n">setup</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">showborder</span><span class="p">()</span>
+<span class="n">color</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;yellow&quot;</span><span class="p">)</span>
+<span class="n">shape</span><span class="p">(</span><span class="s2">&quot;turtle&quot;</span><span class="p">)</span>
+<span class="n">pensize</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">speed</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">begin_fill</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+  <span class="n">forward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+  <span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">circle</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">end_fill</span><span class="p">()</span>
+<span class="n">color</span><span class="p">(</span><span class="s2">&quot;black&quot;</span><span class="p">,</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
+<span class="n">saveSVG</span><span class="p">(</span><span class="n">turtle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+      <svg width="300" height="300">  
+        <rect width="100%" height="100%" style="fill:white;stroke:gray;stroke-width:1"/>
+        
+        
+        <path fill-rule="evenodd" fill-opacity="1" d="M 150.0 150.0  L 250.0 150.0  L 250.0 50.0  L 150.0 50.0  L 150.0 150.0  A -50 -50 0 0 1 150.0 250.0  A -50 -50 0 0 1 150.0 150.0 " stroke-linecap="round" style="stroke:red;stroke-width:2" fill="yellow" />
+        
+        
+        <g id="turtle" visibility="visible" transform="rotate(90.0,150.0,150.0) translate(150.0, 150.0)">
+<path style="stroke:black;fill-rule:evenodd;fill:green;fill-opacity:1;" transform="skewX(0) scale(1,1)" d="m 1.1536693,-18.56101 c -2.105469,1.167969 -3.203125,3.441407 -3.140625,6.5 l 0.011719,0.519532 -0.300782,-0.15625 c -1.308594,-0.671875 -2.828125,-0.824219 -4.378906,-0.429688 -1.9375,0.484375 -3.8906253,2.089844 -6.0117193,4.9257825 -1.332031,1.785156 -1.714843,2.644531 -1.351562,3.035156 l 0.113281,0.125 h 0.363281 c 0.71875,0 1.308594,-0.265625 4.6679693,-2.113282 1.199219,-0.660156 2.183594,-1.199218 2.191406,-1.199218 0.00781,0 -0.023437,0.089844 -0.074218,0.195312 -0.472657,1.058594 -1.046876,2.785156 -1.335938,4.042969 -1.054688,4.574219 -0.351562,8.453125 2.101562,11.582031 0.28125,0.355469 0.292969,0.253906 -0.097656,0.722656 -2.046875,2.4609375 -3.027344,4.8984375 -2.734375,6.8046875 0.050781,0.339844 0.042969,0.335938 0.679688,0.335938 2.023437,0 4.15625,-1.316407 6.21875,-3.835938 0.222656,-0.269531 0.191406,-0.261719 0.425781,-0.113281 0.730469,0.46875 2.460938,1.390625 2.613281,1.390625 0.160157,0 1.765625,-0.753906 2.652344,-1.246094 0.167969,-0.09375 0.308594,-0.164062 0.308594,-0.160156 0.066406,0.105468 0.761719,0.855468 1.085937,1.171875 1.613282,1.570312 3.339844,2.402343 5.3593747,2.570312 0.324219,0.02734 0.355469,0.0078 0.425781,-0.316406 0.375,-1.742187 -0.382812,-4.058594 -2.1445307,-6.5585935 l -0.320312,-0.457031 0.15625,-0.183594 c 3.2460927,-3.824218 3.4335927,-9.08593704 0.558593,-15.816406 l -0.050781,-0.125 1.7382807,0.859375 c 3.585938,1.773437 4.371094,2.097656 5.085938,2.097656 0.945312,0 0.75,-0.863281 -0.558594,-2.507812 C 11.458356,-11.838353 8.3333563,-13.268041 4.8607003,-11.721166 l -0.363281,0.164063 0.019531,-0.09375 c 0.121094,-0.550781 0.183594,-1.800781 0.121094,-2.378907 -0.203125,-1.867187 -1.035157,-3.199218 -2.695313,-4.308593 -0.523437,-0.351563 -0.546875,-0.355469 -0.789062,-0.222657" />
+</g>
+      </svg>
+    </div></div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -483,21 +600,27 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="python-basics.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Python basics</p>
-      </div>
-    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>
