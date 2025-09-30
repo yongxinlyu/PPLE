@@ -1,0 +1,1291 @@
+yeah thanks for the invitation to speak so i tried to make this summoner a little bit i guess materials project
+0:06
+themed so some of the questions are razor sort of inspired by um being a user
+0:11
+um of the materials project for quite a while and i'm going to jump straight in and
+0:19
+so for materials modeling i think the typical workflow is that we want to map between structure and properties
+0:26
+so that's typically it we use different codes different approaches but we want to make that mapping
+0:32
+and i think you can break it up into three parts so usually we have an input that's a crystal structure and often
+0:39
+it's either directly from x-ray diffraction experiments or if it's it's inspired by diffraction
+0:45
+experiments so you're taking the structure of a known material and maybe changing the composition or
+0:51
+modifying the structure in a particular way of course one of the pioneers in in modern crystallography was kathleen
+0:57
+lonsdale just pointing to her and then we have to make a choice in the
+1:03
+hamiltonian so the interactions that we want to describe in the system and the interactions between electrons
+1:10
+between ion and electrons for example and of course this follows hamiltonian
+1:15
+mechanics that was developed by william hamilton and then we want to think about the properties of the system that we care
+1:21
+about so it could be mechanical properties optical electronic
+1:26
+and i think the job of a computational scientist is really to choose
+1:32
+the hamiltonian that's appropriate for the system of interest for that chemistry for that structure
+1:38
+type and also for the property that you care about and so you might make a particular
+1:43
+choice if you care about magnetism and you could get away with sort of a model hamiltonian that describes exchange
+1:49
+interactions between electrons and so you could predict for example magnetic susceptibility
+1:55
+and but generally in first principles of materials modeling we want to have a hamiltonian that's as complete as
+2:01
+possible so we want to describe as many of the interactions in our system that we can
+2:08
+to make the predictions as general as possible and so that's a point i'll come back to
+2:13
+a little bit later and but what i would say is that practically um we have to make choices
+2:20
+so choices that are pragmatic that we can actually we have a hamiltonian that we can solve for our system in a
+2:26
+reasonable time frame and sort of going back to this early quote from paul dirac
+2:31
+so it follows he said at the time that chemistry was a solved problem so quantum mechanics had been developed
+2:38
+in the early 20th century and because the schrodinger or direct equation
+2:43
+can describe the electronic distribution of any combination of elements therefore chemistry was solved but the practical
+2:51
+problem was the equations were too difficult to solve for any realistic system so this is a quote from one of
+2:58
+his papers so approximate method should be developed which can lead to an explanation of the main features of
+3:04
+complex atomic systems without too much computation and this really sums up the next century
+3:10
+of effort and in theoretical and computational science so trying to reduce
+3:17
+sort of the schrodinger direct equations which describe all of the physics and of
+3:22
+the systems we care about into a form that's tractable and i think now typically we deal with
+3:28
+sort of different sets of approximations so we have analytical expressions
+3:33
+such as like leonard jones or buckingham and where we have a
+3:38
+closed form that describes the interaction between elements so when the elements get too close you
+3:44
+get the um you get um repulsion when the you have sort of a
+3:50
+sweet spot for the equilibrium bond length and then you have sort of longer range van der waals interactions so
+3:56
+that's sort of leonard jones type of course that's very straightforward to
+4:01
+deal with computationally so now we can have classical force field simulations
+4:06
+for systems of millions or billions of atoms so still very powerful techniques
+4:12
+but maybe the majority of super computing time at least public super super computing time right now would be
+4:18
+spent on numerical solutions um of for example the conscham equations
+4:24
+so there we make particular approximations to make the equation solvable and for sort of systems that we care
+4:30
+about so usually systems ranging i guess from a couple to hundreds or sometimes thousands of atoms
+4:37
+and then more recently we have a whole new set of statistical approximations and so using machine learning we can
+4:43
+also describe interactions between elements we can describe structure
+4:49
+and composition property relationships and so this is really taking advantage of machine learning models as function
+4:56
+approximators so if we don't know the exact function that relates the
+5:01
+input structure to the output property perhaps we can and train a model that
+5:07
+will a machine learning model that will describe it okay so that was paul dirac in the late
+5:13
+1920s if you move forward a few decades and at that particular time so this
+5:20
+really the development of modern computing started and charles coulson wrote a very nice essay on a split in
+5:27
+the field of theoretical chemistry so those theoretical chemists that were
+5:32
+focused on having accurate analytical solutions
+5:38
+of sort of quantum mechanical problems of several electrons interacting and there's a group of people working on
+5:45
+sort of approximations to allow allow us to treat larger and more complex systems
+5:50
+and but he worked out sort of the information that you need to encode to describe the interacting wave function
+5:56
+of 20 electrons and figure out that surpassed and what would be possible in the
+6:02
+foreseeable future so he made this prediction that around 20 electrons would be an upper limit to
+6:07
+what would ever be possible to calculate and of course he couldn't really see what was what was coming in the future
+6:14
+and and these days it's becoming possible to solve sort of control equations for systems of definitely
+6:20
+hundreds or thousands of electrons so for example this methyl organic framework qio66
+6:26
+and if you're treating it in an all-electron simulation the unit cell has 752 electrons
+6:32
+and but yet we can do it now for two reasons so one is that we have much larger
+6:37
+computers so if you look at top 500 so the ranking of public supercomputers we now have
+6:44
+many systems with over 1 million processors and which is quite incredible how
+6:50
+quickly and the complexity of supercomputers has grown and including some nice ones in the us
+6:57
+and but you also have to pay attention to the power usage so some of these like taking um
+7:03
+sort of 29 000 kilowatts of power for the number one supercomputer that
+7:08
+basically would require an old-fashioned coal power plant just to power that one
+7:13
+supercomputer and in terms of the in terms of the capacity so it's definitely something that's playing on my mind in
+7:20
+terms of how we can be as efficient as possible in our use of resource and i think databases such as the materials
+7:27
+project is one way that we can reduce sort of the the need to
+7:32
+keep re-running the same calculations over and over so definitely one side parallel computing is playing a big role
+7:38
+in able to sort of brute force and solve these equations for larger systems
+7:45
+and then of course we have the algorithms that are sort of powering uh powering them
+7:50
+and a common bottleneck in in first principles modeling is simply matrix diagonalization
+7:56
+so as a matrix gets larger and larger so as you have more basis functions it becomes much more difficult to
+8:03
+distribute that task on many processors and but there has been a lot of work in in applied maths and computer science
+8:10
+in making this more efficient so i use the code fha aims a lot that
+8:16
+and and they've been involved in the development of this alpha library which has been been really impressive in the
+8:21
+rate of progress that now so you can start to diagonalize a matrix that has more than
+8:28
+of dimensions greater than 500 000 using sort of over 20 000 cores quite
+8:34
+efficiently so 3d thanks to hardware and some of these software developments that we can start to
+8:40
+go beyond treating very simple systems using dft start to treat things such as
+8:45
+dislocations and grain boundaries that wouldn't have been possible and even five or ten years ago
+8:53
+so that was a little bit of context and so i said this this seminar i want to make a little bit bespoke and and
+8:59
+i've broken it up into at least past present and future
+9:04
+as i see it in terms of materials modeling but sort of drawing i guess from my progression and over the years
+9:12
+and so i started my phd about 20 years ago and i think a lot has changed since then and that
+9:19
+was really when we were doing one compound at a time with dft so these calculations are very expensive
+9:25
+we're using reasonable and super computing clusters to solve control equations for relatively simple
+9:32
+systems and so my phd was focused on understanding so connections between chemistry crystal structure and physical
+9:39
+properties and with a strong focus on post-transition metal compounds so looking at for example the
+9:46
+differences between tin dioxide so sno2 versus is tin monoxide so sno
+9:53
+so it changes large changes in the crystal structure in the band structure and in the
+9:59
+semiconducting properties and towards the end of my phd we actually got a new supercomputer in
+10:06
+dublin i actually can't remember the size right now and but enable it it enables us to do
+10:12
+larger calculations than ever before so i was very excited to work on this system bismuth standards
+10:18
+so this was the most complex inorganic crystal structure that had been solved from powder diffraction at the time
+10:23
+so i think over 300 atoms in the unit cell and so we're able to solve the electronic structure and look at some of
+10:29
+the sort of some of the interesting features associated with this bismuth lone pair so you can see this asymmetric
+10:36
+electron density but at the time it seemed like very fundamental work sort of just looking at
+10:42
+interactions between bismuth and oxygen and business and sulfur and it was just later in my career somehow these lone
+10:49
+pairs kept coming back and so applications in terms of electrocatalysts and photocatalysts and
+10:55
+solar cells and a range of materials these sort of lone pair states ended up
+11:01
+re-emerging and primarily as a way to increase conductivity and increase absorption in
+11:07
+the visible range of the electromagnetic spectrum so systems like bismuth-vanidate are being quite widely used as um
+11:14
+photo catalysts for water splitting but that was my phd and but for my
+11:20
+post-doctoral research i wanted to get a little bit more applied so i ended up moving to colorado and to
+11:26
+work at the national renewable energy lab where my focus was on high throughput simulations
+11:32
+so there i had access to much larger computers thanks to the us department of energy and we could think about running
+11:38
+many dft calculations so orders of magnitude more than i was doing for my phd
+11:45
+and at the time i was quite inspired by mineral structures and the idea of taking these sort of
+11:50
+prototype structures for example here is the kesterite mineral that can be found
+11:55
+in russia and thinking about substituting in alternative elements
+12:00
+and looking at the possible chemical space that could be formed inside those mineral structures
+12:06
+and and that was a really fun time and so kestrel actually forms a diamond based um super lattice so you
+12:14
+have this sort of zinc blend diamond structure that you can populate with a single element it's
+12:19
+diamond two elements it's a blend three element it's a caltraparite and four
+12:24
+elements it's kesterite and then you can think about the possible chemical space that you can access by substituting in those elements
+12:32
+and so of course there are a number of known compounds binary ternary quaternary but there's also a large
+12:37
+number of unknown and that perhaps could be made so we spent a long time exploring and
+12:44
+performing many such calculations and really cool things so within that single crystal space
+12:51
+we identified potential and materials for solar cells and spin transport materials are very
+12:57
+strong spin over coupling and also a family of topological insulators
+13:02
+and so that was a really productive time using dft to be quite exploratory in
+13:07
+terms of crystal space but what i would say so i was trained formally as a computational chemist and
+13:14
+you can see i was getting quite deep into condensed matter physics so i had a chance i got a marie curie
+13:20
+fellowship to move to the uk and sort of think about my research direction
+13:25
+a little bit so i decided to combine my interest in chemistry and physics and devote some time to organic
+13:32
+inorganic systems so paying attention to some emerging activity in the field of
+13:37
+hybrid semiconductors so materials formed from inorganic and organic building blocks but yet they
+13:44
+could still conduct charge so quite different to the sort of first wave of metal organic frameworks that were very
+13:50
+much wide band gap and dielectric insulators so systems such as this that is
+13:56
+um sort of a mixture of lead sulfide and these sort of aromatic rings and you
+14:02
+give rise to very low effective masses and some quite high levels of conductivity
+14:07
+and that ended up being quite a strong stream of research for me so trying to translate concepts from semiconductor
+14:14
+physics so things like band engineering and to the field of hybrid solids or
+14:20
+metal organic frameworks so in this particular case taking a
+14:25
+quite a wide band gap and wider band gap but yet photoactive crystal and making serious substitutions
+14:32
+on the ligands they tried to control and the band energies so that was
+14:38
+a pretty fun time but what i would say sort of back then 10 years ago
+14:43
+it was incredibly difficult to set up calculations for metal organic frameworks
+14:48
+and so often the structures you get from experiment are quite incomplete so usually missing hydrogen and quite often
+14:55
+you have partial occupancies because of how they refine the structures do you have some sort of orientation
+15:02
+orientational flexibility in ligands so then they end up fitting a 50 site here 50 site here
+15:09
+so there was a lot of manual effort to actually parse the experimental sifs into something that you could run
+15:16
+a dft calculation on and so it's been really nice to see a lot of progress in that area to make and
+15:22
+these types of frameworks more tractable i think one nice initiative and came out from from northwestern and coremof which
+15:30
+is a data set of computational ready meta-organic frameworks so trying to add hydrogens removing disorder and having a
+15:37
+list of structures that you could really plug and play and then of course this year we've just seen and a launching materials project
+15:44
+so the maf explorer and it get incredibly exciting to be able to go through so many different maps
+15:51
+and and see the range of predicted properties and so i think andrew rosen he did a really nice job with the qmof
+15:57
+database which was published last year the year before and and
+16:03
+has implemented this in in the materials project so i think this is a really nice feature
+16:09
+for people working in the area so that was really when i was starting
+16:14
+my research group and i still remember my first phd student
+16:19
+he was a few months into his phd and he came to me and said aaron we're in trouble
+16:25
+and there's a website that's already done the calculations you asked me to do and so this is uh lee burton and his phd
+16:32
+was focused on tin sulfide solar cells so sns related and so one of his first tasks
+16:38
+was to sort of perform some thermodynamic calculations and come up with a convex hole
+16:44
+for the tin sulfide system and so he found materialsproject.org and found actually there was a convex
+16:50
+hole there already and he was a little bit depressed because he's like now what am i going to do for my phd
+16:56
+but still there was a lot more to do there was extra phases and there's quite a strong sensitivity to the functional
+17:02
+but nonetheless that was my first i think introduction to materials project and for me it was quite eye-opening
+17:09
+so it was a real shift in mentality so it sort of standardized a lot of the ground states sort of dft calculations
+17:17
+of perfect crystals and raise the bar for the types of research problems that we could start to
+17:22
+tackle so instead of reproducing all of these and sort of simple reference systems why
+17:28
+not use that data and try to do something more interesting okay
+17:34
+so that brings me to the well closer to the present um
+17:40
+but what i would say my next step so once i found materials project and that made me think about materials
+17:46
+data and thinking about even larger chemical spaces so i ended up going back to some of the
+17:51
+quite early research papers i had been reading when i was working at nrel so work in the 1950s and 60s
+17:58
+when so people were thinking about electron counting uh related to semiconductors so there was a
+18:06
+number of semiconducting families so binary ternaries and quaternary that had been uncharacterized at the time
+18:13
+and people like brian pamplin started to think about actually what other semiconductors could exist
+18:20
+if we take into account sort of valen valence electron counting rules there should be a whole range of
+18:27
+and multi-component semiconductors that should be accessible but at the time it was really just based
+18:33
+on electron counting there's no other metric to say sort of would those materials be chemically sensible or
+18:38
+would they be stable and so that inspired us to put together i think a relatively simple
+18:45
+and package called smacked so semiconductor materials from analogy and chemical theory
+18:50
+and so directly inspired for the work of brian pamplin and others at the time
+18:55
+but the idea was to and put together a package that could deal with elements
+19:01
+and some simple chemical features so that we could explore spaces for sort of millions of combinations
+19:08
+and try to filter which ones could be feasible or not and i think the first person to commit
+19:14
+some code was keith butler and he was a postdoc in my group at the time and now he's a staff scientist
+19:20
+in the scientific machine learning division at sdfc so a uk national lab
+19:27
+and then we had many contributions from undergraduate researchers so then this was a really great way to
+19:33
+introduce python and introduce some basic package management to various students uh throughout the years
+19:40
+and i think dan davis was one of the main contributors and he worked on smackd during his phd
+19:45
+and i think he had a visit to berkeley and towards the end of his phd but many other other contributors along
+19:51
+the way and anthony he's working on smacked um right now
+19:57
+but i think the key approximation at the beginning was really trying to simplify the problem of
+20:02
+exploring chemical spaces so saying okay let's ignore structure let's try to explore and build models
+20:09
+based purely on composition or element features so can we look at balancing
+20:15
+charge balancing electronegativities having some metrics for stable oxidation states
+20:22
+and things like that so that was sort of the that was the approach that we followed
+20:28
+but towards the end of his phd dan i think he was getting quite ambitious in terms
+20:34
+of okay if you want to start to make um strong predictions that could be verified experimentally you really have
+20:41
+to integrate structure so then we started to work on metrics for predicting structure quite
+20:46
+efficiently and so one of the bottlenecks dan had faced and was the lack of description of
+20:52
+structure in trying to train element only models and the issue that you really have is
+20:59
+and the inability to describe polymorphs and so here is just the distribution of
+21:04
+band gaps and in the materials project for materials with the same composition
+21:11
+so it's looking at the spread in bandgap as a property and across different polymorphs
+21:17
+and you can see for some materials there's actually quite a large difference so you can have up to a two electron
+21:22
+volt difference the same composition in two different structures and so this is going to set a limit to
+21:28
+the accuracy of any derived models that don't include structure as a feature
+21:34
+and so that made us sort of take a step back and really think about integrating more structure features
+21:40
+and more sophisticated or faster ways to predict structure and directly from
+21:45
+compositions but i would say since then back in 2019 of course there has been a lot of progress in more complex and elemental
+21:53
+features and i'm sure taylor sparks will talk about that next month but in terms of encoding
+21:58
+sort of more than just the sort of elemental identity into it into a structure feature
+22:05
+but i just wanted to give one example where i think structure has been very important um in in my sort of recent
+22:11
+work and that would be the perovskite system and probably many of you whether you
+22:16
+like them or not you you've come across the perovskite structure at some stage and but the simple sort of high symmetry
+22:24
+prototype is relatively straightforward it's a cubic structure and a primitive unit
+22:30
+cell with five five atoms in the basis and the crystal structure was determined back in 1925
+22:37
+with the structure of the mineral form of calcium titanate but the interesting thing about
+22:42
+perovskites is not that cubic sort of parent structure it's all of the derived lower symmetry
+22:48
+structures that can emerge from that and so it's been shown that there's 23
+22:53
+distinct types of lower symmetry perovskites that can emerge from tilting of those octahedra
+23:01
+and you can connect them according to group theory so you have the high symmetry cubic structure on top
+23:06
+then you start to remove particular symmetry elements so you can form a
+23:11
+tetragonal structure remove another symmetry element from an orthorhombic structure
+23:17
+another one from a monophenic structure so you have this family of related structures
+23:23
+they're all based on abx-3 they're all based on connected octahedra but it's just the deformations of those octahedra
+23:31
+and that vary and but my particular interest has been in the subclass of hybrid halide
+23:37
+perovskites so these gained a lot of attention for applications in solar cells and leds
+23:43
+and even these days for memristors and other applications and the difference here is that one of
+23:49
+the elemental components of the perovskite is replaced by a molecule so it could be something like
+23:54
+methylamonium or formamidinium or dna or mda and so different molecules will sit
+24:01
+on a lattice site that is occupied by a charged ion in a regular perovskite
+24:08
+and the really interesting thing is that these materials if you have metal ammonium leaked chloride for example and
+24:14
+they still occupy the regular perovskite structures so these colors represent different compositions that have been reported in
+24:21
+various space groups corresponding to tilted and tilted perovskites and polymorphs
+24:28
+so a lot of the previous knowledge in terms of the crystallography of oxide perovskites
+24:34
+translated very well to the family of hybrid halide materials
+24:40
+and one of the first things we noticed when we started to sort of look at these in a little bit more detail
+24:45
+is that although the x-ray diffraction tells you one story maybe there's a particular high symmetry and perovskite
+24:52
+structure that's present when we look locally for example when you do molecular dynamic simulations
+24:58
+you see a lot of disorder so you see vibrations and rotations of the molecular building blocks
+25:05
+and you see a lot of motion in the underlying in this case lead iodine framework so a lot of things happening
+25:11
+and it made us realize that these structures are highly dynamic and they're not fully described by brag
+25:17
+diffraction which is really an average over space and time so if we look at the distribution and of
+25:24
+the ions in the system from room temperature and mature dynamic simulations what you see okay the
+25:29
+average crystallographic position is indeed um at the center of the distributions
+25:35
+but you have very large deviations from the average positions and at the beginning i would say we're a
+25:41
+little bit confused about these that are very um elongated ellipsoids around the iodine
+25:47
+positions in the structure but of course it makes a lot of sense when you think about tilting of octahedra
+25:53
+because this tilting sort of maps out a ellipsoid rather than a sphere so you have these very asymmetric
+26:00
+um lobes that are are mapped out but from the iron distributions
+26:05
+and so we were sort of shouting to the community a little bit about the some of these features and it managed to get a
+26:11
+very nice collaboration with the group of simon billings at columbia university in new york
+26:17
+and so he's an expert in inelastic scattering which is a way to probe the local structure
+26:23
+and so we've got a very nice validation that indeed although brag diffraction was telling us one
+26:28
+thing about the symmetry of these perovskite halide perovskite structures that are sort of
+26:34
+quite averaged locally there's a lot more happening and
+26:39
+essentially from the inelastic measurements you can in you can um analyze the pair distribution function
+26:46
+and what you find is that over different length scales you have the best fit to different crystal structure types
+26:53
+so when you look over long length scales for this particular material at this temperature you get a best fit to a
+26:58
+cubic perovskite structure but when you look over shorter length scales you get a best fit to a polar um
+27:05
+tetragonal and space group so there's a difference between the short range features and the long range
+27:11
+behavior and so that was back and so back in 2016 but since then i think experimentally
+27:18
+we've been able to probe over shorter and shorter length scales in very nice ways
+27:23
+and so i did a collaboration in this case with tiernan doherty and who's a phd student
+27:30
+with some strengths in cambridge and they've been using selected area electron diffraction
+27:36
+to take some very high performance perovskite solars and films and look at the changes in structure
+27:42
+within a grain and between grains and remarkably they can see several things
+27:48
+so you can see string gradients within a grain so you see that the effective lattice constant varies within the grain so you
+27:55
+have built-in strain in these high performance films but also you have a range of different polymorphs that coexist
+28:02
+so you can have tetragonal phases you can have hexagonal polytypes you can have cubic phases that all coexist
+28:09
+within these high performance films and so these perovskites are extremely heterogeneous
+28:17
+so this is really pushing us to think how we can model such things so the mixture of phases that are present at
+28:23
+once um in these films at room temperature and so thinking about larger scale simulations and how we can map out these
+28:30
+local distortions in a more efficient way and so my student kazuki morita he spent
+28:38
+quite a bit of time thinking of how he could efficiently featurize and distortions in octahedral systems
+28:45
+and so going back to some simple group theory and the possible ways that you can deform an octahedron so he realized
+28:52
+there's actually only four unique modes so you can take any octahedron and if
+28:57
+it's distorted you can map it in essentially into four dimensions so this ends up being a very convenient
+29:03
+way to if you're given a set of structures and
+29:08
+either separate structures or a structure that's very large and you have a series of distortions over space
+29:15
+this is one way that enables you to classify those distortions and so to test the protocol he put
+29:22
+together so he initially looked at um ab03 octahedra inside the materials project
+29:30
+so he's able to extract 552 octahedra and this is the distribution of
+29:36
+distortions so the the index of those four modes for those octahedra
+29:41
+and so you can see quite a large spread so you end up getting a peak at zero when you for
+29:47
+example if you have a cubic polymorph so you have a perfect octahedron so it
+29:53
+could be rock salt it could be a cubic perovskite then you have no distortions
+29:58
+but there are a number of structure types and materials that exhibit large
+30:03
+distortions over quite a large range so this was quite cool that we could see
+30:08
+that a series of distortions were present and digging a little bit further and kazuki found that distortions classified
+30:16
+very nicely according to the connectivity between octahedra so whether you have corner
+30:23
+sharing networks or edge sharing networks or face sharing networks or some combination of corner sharing
+30:29
+and face sharing so the distortions really broke down into these separate sets
+30:35
+and so in this case you get the strongest distortions in the combination of these two particular modes
+30:41
+when you have a mixture of corner and face sharing and connectivities and so
+30:47
+yeah there's some quite nice findings in that particular paper but i don't want to draw on it too long but what kazuki found
+30:54
+quite surprisingly and this is really thanks to one of the reviewers pushing us to do this and so he performed a series of
+31:00
+molecular dynamic simulations for some halide perovskites and found that a very simple
+31:06
+supervised model that just tried to reproduce the energies from the md so a really minimalist model where the
+31:12
+only features were the distortions of the octahedra did a very good job so with four dimensions you could get a
+31:20
+very good fit to the energies so this this just shows that group theory can be quite useful in terms of informing us in
+31:27
+efficient representations of structure so there's a lot of knowledge built in
+31:32
+crystallography that we can remap to have more efficient models for training and in machine learning
+31:40
+so yeah we're using it for molecular dynamics and but we're also applying it now to look at more complex perovskite
+31:46
+polytypes and so jen julie is a postdoc in my group and she's wrote a nice package for
+31:52
+generating very complex perovskite sequences so we have mixtures of different
+31:58
+connectivities between corner and face sharing and sometimes it's described as a mixture of um cubic and hexagonal poly
+32:05
+types and then we can perform various and various analysis to see what type of
+32:12
+distortions emerge because there's increasing evidence that these types of intergroups
+32:17
+appear both in oxide and in halide perovskite films so because you have a very delicate
+32:23
+balance between sometimes these hexagonal and cubic networks that in reality at room temperature you
+32:30
+end up getting some mixture of the two and so that's a really fun topic that's sort of attracting our attention
+32:39
+okay that brings me to the future so to get back to my title of the grand truth
+32:46
+and so i mentioned i i can't remember exactly what the title was but something about uh the grand truth is out there
+32:53
+and so when you think about the grand truth of quantum mechanics so i think we're really lucky in a way that
+32:58
+compared to many other fields we have the ability to generate our own data
+33:03
+so we can make predictions for example with machine learning model of a particular property but we have the
+33:09
+ability to calculate we can go back we can solve a set of equations and predict what that value is
+33:15
+so i think that active learning and is really going to be a very exciting opportunity in in materials design in
+33:22
+the future but nonetheless so grand truth of my quantum mechanics so what we want is a complete
+33:28
+description of all interactions in our system so if you think we have a crystal that crystal has
+33:34
+atoms sitting at particular sites we want to describe all the interactions between atoms in those in the particular
+33:41
+crystal that gives us exact properties of the system so you can start to write down the
+33:47
+hamiltonian it may include all the interactions that you need usually the first term is the atom sitting at their
+33:54
+positions that generates a periodic potential that periodic potential distributes the
+34:00
+electrons that defines the chemical bonds and from that we can determine the energy so that
+34:07
+would be the internal energy of the system but depending on the system if you have a small gap
+34:13
+or if it's a magnetic system where you have different configurations that can emerge then you have excitations if
+34:20
+they're low energy they're going to perturb that static crystal potential
+34:25
+you also have vibrations and in the simplest approximations you have harmonic vibrations the atoms are
+34:32
+moving in a harmonic potential so then we have a number of almost analytic terms we can incorporate
+34:38
+to modify the energies to modify the properties but increasingly for materials research
+34:44
+we're driven in a direction where is becoming increasingly important so if you're interested in
+34:50
+thermoelectrics it's all about tuning thermal conductivity thermal conductivity is only defined
+34:57
+when you have these and harmonic terms so you also have to include some description of an hermann and harmonicity
+35:04
+and then you have coupling between vibrations and the electronic states so you have electron
+35:10
+phonon coupling to incorporate as well so you think about this mega hamiltonian that starts to describe all of the
+35:16
+interactions that are at play to describe the properties that a material has at finite temperatures
+35:23
+which is sort of real temperatures at room temperature but often what we do
+35:28
+mainly because it's convenient or it makes our job a little bit easier
+35:34
+we strike out all of the other terms we say okay let's just keep the static potential
+35:40
+let's assume we have a crystal that's static the atoms don't move
+35:45
+they are the properties job done that's okay in some cases but of course
+35:52
+we're missing many things we're missing free energies so we don't have any temperature or true pressure
+35:58
+dependence in the phase diagrams and we're missing thermal expansion which could be positive or could be
+36:04
+negative it might be isotropic it might be an isotropic thermal expansion can have a big effect
+36:10
+on properties whether it's mechanical instead of changing a bulk modulus whether it's changing a band gap
+36:17
+and basically every property is going to depend on how a material expands and the halide perovskites i mentioned
+36:22
+before they have some of the largest thermal expansion coefficients of any known solid
+36:28
+so you end up having very big changes in structure at room temperature so if you do a static calculation
+36:35
+and i say here a thermal because we have no description of temperature not even zero point motion
+36:40
+then we have a built-in error and of course to explicit electron
+36:46
+phonon interactions can be very important in some cases as well so we have all of these extra terms that
+36:51
+we may want to include and of course there are ways to include them so for example if we go to the
+36:57
+quasi-harmonic approximation this is sort of a cheap and cheerful way to include the effect of temperature
+37:04
+so you have a free energy that depends on the volume of the system essentially what you do is
+37:11
+and minimize the volume at for a given temperature you find the volume that minimizes the free energy at
+37:16
+a given temperature so for these um rock salt systems you have the lattice
+37:22
+constant that changes with temperature and therefore we can we can look at the
+37:28
+how a property changes as the structure changes and in this case the bulk modulus can
+37:33
+easily change by about 30 percent and when a crystal expands from zero kelvin
+37:39
+to room temperature i say cheap and cheerful buzzer harmonic works quite well for many cases
+37:46
+but still it's quite approximate now one of the reasons is it's not it can't describe changes in internal
+37:53
+degrees of freedom very well so you have to go beyond the quasi-harmonic approximation
+37:58
+and in terms of describing these sort of unharmonic contributions to structure to
+38:04
+free energies to properties there's been an incredible incredible amount of progress over the
+38:09
+past three to five years in new methods but many of them are using things like
+38:16
+compressed sensing so instead of explicitly calculating all the terms you can sample the anharmonicity and
+38:22
+come up with some effective correction and so at tadano in in scuba he's been
+38:29
+doing some really nice work developing the aloe mode code and to include some of those corrections
+38:34
+and so he published this preprint and and last autumn
+38:40
+so looking at terms that are missing in the quasi-harmonic approximation very interesting to me because before
+38:45
+that people we knew there are some things missing but the quasi-harmonic approximation is
+38:50
+a little bit peculiar because it's not part of any formal expansion in terms of
+38:56
+many body theory so it sort of combines a mixture of different terms
+39:01
+but this paper he actually tries to quantify what terms are missing and what's quite curious even systems
+39:07
+like sodium chloride and magnesium oxide they're classified as strongly and harmonic
+39:13
+so at least me i'd have the intuition that a rock-solid crystal should be quite robust you don't have to worry too much
+39:20
+about anaerobicity but actually it's not the case there's a lot of interaction between vibrations
+39:28
+that's i think one dimension you can look down and and just heart from heart from
+39:34
+twitter so this this particular and tweet got my attention yesterday
+39:40
+so maya wrote i don't like people who neglect spin over coupling that's it i've said it
+39:45
+and i felt a little bit hurt like she could could have been talking to me because there's many cases where we have to
+39:52
+neglect spin-orbit coupling because it's expensive not because we don't know it's important so for example in the halide
+39:59
+perfect guides which contain lead we know spin orbit coupling is important but primarily it affects the conduction
+40:06
+band where the p band that's formerly empty so we can make assumptions that maybe the dynamics are not so much affected
+40:13
+electrodynamics should be okay vibration should be reasonable and we do have some evidence to back that up
+40:19
+but generally it can be difficult to justify why we neglect such effects
+40:25
+and in fact a few years ago this actually reminded me so with dan davis i had a collaboration with an above
+40:32
+sort of looking at some trends in spin orbit coupling so taking sets of materials from the materials project
+40:38
+including spin orbit coupling and looking at the impact and here's a series of plots so they're
+40:45
+band gap differences so the difference in band gap and calculated with spin-orbit coupling and
+40:53
+without spin-over coupling and there's a general assumption that spin-orbit coupling is a constant for a
+40:58
+particular element so if you think you have lead you have tin present you're going to result it's
+41:04
+going to result in some correction that you need add a shift in the chemical potential add a constant term and that's
+41:10
+going to fix your calculations but what we found quite scarily that there's actually
+41:17
+quite a large distribution for these heavy elements in the corrections so just looking at lead there's
+41:23
+variation between no band gap shift down to a 0.1
+41:29
+1.4 electron volt band gap shift and initially i thought that was a bit
+41:34
+strange and so i got done to break it down in terms of oxidation state so you see actually there's
+41:40
+many more lead to compounds so most of the distribution isn't led to then i thought okay
+41:46
+it must depend either on the coordination environment or on the anion that's present
+41:52
+but yet we couldn't see any clear correlation so that's a these plots are trying to show and i think the timing was a little bit
+41:58
+early we didn't have any good sort of featurization of structure
+42:03
+that we could have plugged in and i think this could really be revisited with some supervised machine learning to
+42:09
+try to identify some particular correlations to see what features are driving these
+42:14
+distributions could also be that the data was slightly anomalous that's that's possible as well
+42:21
+but still it shows the spurious errors that can be built in when we
+42:26
+choose a fixed hamiltonian and expect it to be transferable from any materials
+42:32
+so this got me thinking but
+42:37
+maybe just from another perspective so in terms of materials data and databases so i think from the user
+42:43
+of course we want to have absolute data please do the best quality calculations
+42:48
+you can give us the best data so that we can use them in our trained models or in fair
+42:54
+for sort of our various predictions so you can think of it like a jacob's ladder so we want to get up to heaven
+43:02
+and that's from the user perspective so we want the best data possible but i do realize from the curator
+43:08
+perspective so if you're maintaining or running the calculations with these databases
+43:13
+it might be more similar to a dante's inferno so you have all of these rings of hell that you have to get through
+43:19
+because different approximations it can be tricky you end up errors that
+43:25
+errors crop up for particular chemistries that you can no longer avoid and and you can
+43:32
+have other issues maybe a pseudo potential cannot be used for that particular type of calculation so it's very difficult to have
+43:38
+systematic data for all materials so there is a balance there
+43:45
+but what i would say so how i'm using materials databases and materials project and pi match n at the moment so
+43:52
+just to give you an idea so i'm using it in my undergraduate teaching so my first year undergrads and in
+43:59
+materials at imperial they all get to use materials project and in the introduction to
+44:04
+crystallography i get them to make their accounts to download structures to play with those structures
+44:11
+so that's really really useful uh for my postgraduate teaching um i get
+44:16
+you typically get them to use the python api so to actually get an experience of
+44:22
+queries of extracting data from databases again very very useful
+44:28
+and then for research projects i love the website for informal project planning so during seminars if somebody
+44:34
+mentions an interesting compound i'm straight to materials project to check it out some basic properties
+44:40
+and then of course for data driven projects having that resource of systematic data is invaluable so i
+44:46
+really appreciate all of the effort that goes into maintaining such a database so both in terms of the
+44:54
+energies but also the structures that are there
+44:59
+but then on the other side of course you do have some perils and i think many people enter this field
+45:05
+perhaps not from the computational science background and sometimes they may have the belief
+45:11
+that this data is absolute that these are the energies these are
+45:16
+the band gaps these are the phase diagrams that is the truth if i build a
+45:21
+model that can reproduce it then i've solved everything but i think we know
+45:26
+that's not really the case and that there can be many hidden errors
+45:33
+but something else that actually caught my interest recently so some of you may have read the book
+45:38
+from christoph molnar so he wrote a very nice open source textbook on interpretable
+45:44
+machine learning so the various approaches that you can use to open up black box models in
+45:49
+different ways and so he posted this recently so i think you've become a little bit cynical
+45:55
+about machine learning in general so this is not specifically for materials but that machine learning research has
+46:01
+detached itself from solving real problems and created benchmark islands
+46:07
+that there's these very large data sets and it seems to be what people want to do is just develop
+46:12
+models that can reproduce those data sets with less
+46:19
+error and so he highlighted a number of what he called warning signs
+46:24
+so the predictive models is its sole measure of progress that the original motivations and assumptions for
+46:30
+developing these models are no longer questioned and the actual progress in solving the overarching research questions
+46:37
+have become irrelevant or even discouraged i don't think we're there yet for
+46:42
+materials i think we're really at the formative stages where people are taking different models seeing how they
+46:48
+work trying to develop more accurate and approaches more general more transferable but i think it's quite
+46:55
+useful just to pay attention to these warning signs as an editor as a reader and i do come
+47:02
+across a number of papers so sometimes i read them and think is that useful for me
+47:08
+as a solid state chemistry physicist um but yeah they can be useful in terms of
+47:13
+developing the general infrastructure but i think sometimes we have to think about these overarching questions of the
+47:20
+big problems that we're trying to solve and i think one of them at least for me is thinking about new chemical spaces
+47:27
+so often we're looking for materials with particular properties or to meet a particular figure of merit
+47:34
+and i think there are an increasing number of daft predictions in the literature and but sometimes we have a set of very
+47:41
+powerful tools um but we just need to have that balance between sort of exploring new chemical
+47:47
+spaces and being careful of what we're saying is going to be the next great material
+47:52
+and i think alex zunger was really on point in this commentary in nature a few years ago on the burden of proof
+48:00
+that we have as materials modelers when we make predictions of
+48:05
+a new system that has particular property making sure that it's as realistic as possible
+48:12
+and i think at this point in time so we have many indicators of stability
+48:18
+so you can think in terms of thermodynamics of locally heat information it's it's usually quite
+48:24
+optimistic and you can think globally about convex hulls maybe an open environment interaction with
+48:30
+oxygen or water you can think kinetically about the phonons but it's usually quite small
+48:35
+displacements you could think about molecular dynamics or maybe even monte carlo methods
+48:40
+or come up with a model for synthesizability for machine learning
+48:45
+i think we have many indicators right now but personally i haven't seen a quantitative stability figure of merit
+48:53
+or machine learning model that i'm really convinced by and i think it's really very much a work
+48:59
+in progress and i'm excited to see where the community is going to go over the next few years in terms of being able to
+49:05
+predict these realistic candidates and more efficiently
+49:11
+and i really enjoyed reading actually one paper from berkeley i think it just appeared this year from christopher
+49:16
+bartel and reviewing some of the approaches for stability metrics so thinking about
+49:22
+different thermodynamic potentials that we can incorporate and in terms of having more accurate
+49:30
+and reliable predictions so apologies for the rant for those sort of
+49:37
+a series of things were just on my mind recently and that sort of brings me to the end so
+49:42
+thanks if you stay till now that's great and so what i tried to get across was the predictive power of materials
+49:48
+modeling i think what i've seen in the last 20 years is incredible in terms of going from these
+49:54
+individual calculations solving concham equations to not thinking about tens of thousands of
+49:59
+materials but at the same time i think we need to be critical um of the models are being developed and
+50:06
+also of the data that we're training those models on if we're going to have robust and
+50:11
+meaningful predictions in the future so thanks to my research group and collaborate collaboration network i
+50:17
+know roshi yang one of my phd students she's working hard over in berkeley and thanks to everybody else
+50:24
+i think materials project and community has been quite forward thinking in terms of reproducible
+50:31
+science so i'm not going to dwell much in terms of sharing your codes and data
+50:36
+but thank you all for your attention
+50:41
+wait thank you so much aaron for the wonderful talk uh we do have some questions in the q a panel if you're
+50:46
+able to go ahead and review those uh apologies to anyone whose questions we're not able to answer in the next few
+50:53
+minutes but we will have the uh the link open the chairsproject.org seminars where you can repost the questions so
+50:59
+aaron are you able to see the question would you like me to moderate or are you able to see them yourself and we can try
+51:05
+to answer some of these let me just get my screen going and it should be fine
+51:11
+yeah go for it oh i i can see them i said you want me to just go through
+51:16
+sure sure yeah any order you'd like so okay so and and above you're an expert
+51:23
+on this topic so feel free to chip in as well and so there's one from gabriel mann
+51:29
+so can one predict based on atomic number alone which elements have chemically active
+51:36
+versus inactive lone pairs i think that's a really good question
+51:42
+and it's actually the one i gave to kazuki at the beginning of his phd
+51:47
+and he's coming to the end of it right now and back then i think it wasn't possible
+51:53
+um in order to produce to get a very sort of good clustering
+51:58
+there seems to be this very very delicate balance so even what i'm seeing in the lead halide compounds
+52:05
+there's a very large family of lead iodide systems with different counter irons
+52:11
+and with some counter rhines you end up getting an inactive lone pair so you get a regular octahedron in other cases then
+52:18
+you get this very projected lone pair so more sort of this um deformed either four or five
+52:24
+coordinate environment and i think there has to be a chemical explanation exactly why but i haven't
+52:31
+seen a good prediction yet in terms of classifying the behavior but i think that's a really really good question
+52:38
+so thanks for that gabriel and second question from robert wechsler
+52:46
+so there there have been some very impressive advances in using machine learning to fit interdiment potentials
+52:52
+or solve the many bodies schrodinger equation so these models however tend to be black box
+52:57
+which based on your talk today isn't always desired for an intuition in materials design
+53:03
+what's my perspective am i optimistic that simpler theories for materials
+53:08
+design will be discovered in the next decade so personally i think machine learning
+53:15
+atomic potentials are quite game-changing so i've been involved in quite a number of
+53:22
+projects in trying to train new classical potentials so taking some buckingham type potential
+53:28
+you have a set of observables you try to find a set of coefficients that fit this particular functional form
+53:35
+and it's a nightmare so it's often called a dark art that it's so difficult
+53:40
+to train a new interatomic potential and so people spend years trying to even
+53:46
+a system like titanium dioxide there's no robust interatomic potential for titanium dioxide
+53:53
+that can describe its various polymorphs and its instabilities and but machine learning
+54:00
+if you're thinking about sort of these um sort of gaussian approximation type potentials
+54:06
+they seem to do an incredibly good job with relatively little data
+54:11
+so instead of having a set of clear observables you just sample a set of perturbed structures
+54:17
+you train an effective model and it does a really good job so i think especially when you're treating with systems that
+54:23
+are polymorphic and if you have for example a crystalline to amorphous phase
+54:30
+transition and if you have some complex behavior that you want to describe these seem to do a
+54:36
+really really good job so i think for those types of materials it's going to be very useful and will go beyond
+54:43
+sort of solving the concham equations because you see they're not interpretable but even
+54:50
+dft is not very interpretable either in terms of you're solving this set of
+54:55
+partial differential equations that does map between structure and properties but
+55:01
+the inter interpretation is usually up to the user so do you interpret the system as
+55:06
+covalent or ionic and are you using sort of a cohp type approach there's many
+55:11
+different ways and i think machine learning is just like that i think the general trend is more interpretable
+55:17
+models so i'm very optimistic for the role of machine learning right now
+55:23
+um so a question for baja cahill so can we use synthetic data to fill in the missing
+55:29
+pieces so in principle yes i think it really depends on the type of project
+55:35
+and i think like others we try to do natural language processing to for example
+55:40
+extract data from the literature but you run into problems quite quickly
+55:46
+so if you take a material like zinc oxide and you try to do data mining of band gap
+55:52
+you'll get a very large range because different groups have different samples that have
+55:58
+different impurities different thicknesses different morphologies they fit their optical absorption in
+56:05
+different ways so you get a very large range in the values that have been reported
+56:10
+and so i think there's a lot of hidden variables in the experimental data that
+56:16
+are difficult to extract because they're not in the papers themselves so what with the background defect
+56:21
+concentrations what's the dominant orientation of you know of the of the crystals what's the
+56:27
+particle size so i think it's difficult but i think if you have a focus project where you're
+56:33
+really trying to calculate something that's directly being measured then i think it becomes very
+56:40
+useful to combine synthetic and predicted data but if you're trying to do it blindly from the literature i
+56:45
+think it's very very difficult i hope that answers your question
+56:51
+and next question from gabriel
+56:57
+gabriel gabriel is back again and given standard halo perovskites some
+57:02
+methylamonium lead bromide what are the smallest and largest terms in the hamiltonian
+57:07
+oh and how large is the unharmonic term relative to static potential term
+57:13
+so this is actually one of the really big questions right now and
+57:19
+there's many high profile papers talking about the high levels of anharmonicity
+57:24
+i think generally for these materials if you perform a harmonic and
+57:29
+phonon calculation so you calculate a set of frequencies typically the agreement is reasonable with respect to
+57:36
+experiment so you get infrared and raman peaks that are reasonable but you also
+57:41
+get a number of imaginary modes so imaginary modes that correspond to these
+57:46
+tilting of the octahedra as some dynamic instability so that's what the
+57:52
+um unharmonic theories allow you to capture so i think in in many cases
+57:58
+the room temperature phases are stapled by unharm and harmonic terms
+58:05
+so at low temperature you have a very rigid heavily tilted perovskite at room temperature they're heavily
+58:11
+dynamic that dynamic behavior is inherently unharmonic so you need to have a double
+58:17
+well type potential and but still i think if you're really asking about the order of the terms
+58:25
+the unharmonic results in a large contribution to the to the free energy but it's not enough
+58:32
+to describe the room temperature phases so you have to go beyond but i think that's a topic that's still
+58:38
+under active research and debate right now um also greetings to jacob and gavartan
+58:46
+who i think is that schrodinger and these days uh aaron thank you for
+58:51
+the thought-provoking talk with regards to the group theoretical analysis you mentioned that these distortions are
+58:57
+of yantellor or crystal feed splitting type it's known that these are not reduced
+59:02
+they're not reproduced at an lda gj level yet some distortions are represented
+59:09
+very well is there common wisdom on when gga can or cannot describe that's a really good question
+59:16
+i was a little bit lucky in this case so when you have lead to or tin to it's actually this second order
+59:23
+yanteller effect so it's not that you have a partially occupied state that's been split
+59:30
+by some on-site by some um some by correlation to give you a filled
+59:35
+and empty states it's that you get some coupling between field
+59:40
+and empty states that results in a much much more and
+59:46
+yeah the physics is it it's a little bit more easy to describe at the lda gga
+59:51
+level so this relates to the stereochemical activity or inactivity of the lone pairs
+59:57
+so i think if you're dealing with systems like certain transition metals it wouldn't do a good job here but
+1:00:03
+because it's led to and i think in this case it ends up being reasonable because it's this
+1:00:08
+second order yantella effect and so i think it's quite a special case
+1:00:16
+so lee zhang asks what's my view on
+1:00:21
+the questions keep jumping what's my view on machine learning's future to provide more mechanistic scientific
+1:00:26
+details matching those from dft rather than prediction slash
+1:00:32
+engineering so i think that's one of the other streams of research i think somebody
+1:00:38
+mentioned somebody mentioned and some of the deep learning work
+1:00:43
+on trying to have um trying to replace the many bodies schrodinger equation
+1:00:48
+so there's work i know there's a lot of work at deepmind so deepmind in london have hired a number of graduates from
+1:00:54
+um condensed matter physics in imperial i know as one example that have been working on
+1:01:00
+this type of problem so i would not be surprised in the next five years if we see a nature front cover where the
+1:01:08
+schrodinger equation has been replaced by a deep learning model in terms of the accuracy and generality
+1:01:14
+of predictions so it's replacing these pdes by a very large neural network
+1:01:21
+and of course a lot of effort is going to go into the training of that i think the question is once it's trained will
+1:01:26
+that be shared and are we going to be doing fewer and fewer dft calculations
+1:01:33
+and again i think it's going to depend on the property that you're interested in and so maybe if you care about energy
+1:01:39
+or some simple property that's fine i think there's still a lot of effort going to having more sophisticated response
+1:01:45
+functions for example optical properties or magnetic properties where we will still have development
+1:01:51
+using the traditional methods and i see annabath has joined back in so i
+1:01:58
+notice we're a few minutes over time at this point and there's still quite a bit of questions to go so my suggestion is
+1:02:03
+maybe we do a couple more questions and then uh any one whose questions were not answered maybe they can post them on
+1:02:09
+materialsproject.org seminars and then we can try and you know have a community discussion afterwards for some of these other ones
+1:02:15
+so aaron i'll leave it back to you but i realize we're kind of over time now so we might just want to do one or two more
+1:02:22
+okay yeah sort of dinner time in london but thanks for all the questions let me just answer two more and then
+1:02:29
+i will try to answer the rest online if you have them so am i aware of any methods looking into electron excitations or electron
+1:02:36
+forming coupling on the energy materials of finite temperatures and
+1:02:42
+what i've seen is i think separately in the quantum chemistry community
+1:02:47
+people have definitely been working on models for dealing with electronic excitations so going beyond tf dft and trying to
+1:02:54
+train um on sort of higher order sort of post-artery fog methods
+1:03:00
+separately i think we've seen that machine learning models can reproduce phonon
+1:03:05
+and density of states quite well but i haven't seen anything that's
+1:03:12
+predicting for materials electron phonon interactions i think one of the reasons
+1:03:17
+is they're quite expensive to calculate so we don't yet have the data sets that
+1:03:23
+enable training reasonable models so i think that's one of the bottlenecks
+1:03:28
+and it's generating a sufficiently large data set but i suspect some smart people are
+1:03:34
+working on that problem right now but thank you for that anonymous attendee
+1:03:40
+so final question from ebi sam do i expect new unknown features maybe a
+1:03:46
+combination of known features or new ones coming up as key parameters and predicting properties or as approximations to a reasonable
+1:03:53
+range i really hope so because for me that's
+1:03:58
+the exciting thing where if machine learning training all of these models
+1:04:04
+tells us something that we really didn't know and i think for classical potentials
+1:04:10
+there's a lot of understanding of the limitations of two body methods that when you have a pairwise potential
+1:04:17
+it cannot describe these types of phenomena you need to have three body or four body to describe
+1:04:23
+and that sort of tells you something about the nature of the interactions but if we end up identifying some particular
+1:04:30
+features that are very efficient for predicting mechanical properties of vibrational properties
+1:04:35
+and we can understand them i think that's really really cool and instead of just i think the first
+1:04:41
+wave of machine learning for materials was really throwing in every possible feature
+1:04:47
+all of these very random ones like the melting point of the element the range of the melting points the average
+1:04:55
+sometimes you end up getting a model that relies on that feature but it's very difficult as a
+1:05:00
+scientist to really understand is that a meaningful correlation or is
+1:05:06
+it just the fact that you had this random feature that's giving rise to a slightly better model
+1:05:12
+and so i am very very hopeful i think we're going to learn and learn a lot
+1:05:17
+and in terms of the features that end up performing well for particular classes
+1:05:22
+of property and i think that's the last question so
+1:05:28
+thank you all for being so engaged for asking and yeah i see annabelle
+1:05:33
+is back great so thanks so much aaron for the talk and for staying extra and in terms of answering the questions the link to
+1:05:39
+continue the discussion in case you have further questions is in the chat right now so please check that out uh thank
+1:05:45
+you again aaron and we look forward to seeing everybody at the next materials project seminar
