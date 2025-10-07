@@ -1,0 +1,758 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Advanced Animations &#8212; Personalised Programming Language Enhancement</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'learning_resources/advanced-turtle-animation';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Word Frequency" href="high-frequency-words.html" />
+    <link rel="prev" title="Creating Animations" href="turtle-animation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Personalised Programming Language Enhancement - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Personalised Programming Language Enhancement - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Home
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Learning Resources</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python-basics.html">Python basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot-figures.html">Plotting figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="turtle-animation.html">Creating Animations</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Advanced Animations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="high-frequency-words.html">Word Frequency</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/yongxinlyu/PPLE/main?urlpath=tree/learning_resources/advanced-turtle-animation.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/yongxinlyu/PPLE/blob/main/learning_resources/advanced-turtle-animation.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/yongxinlyu/PPLE" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/learning_resources/advanced-turtle-animation.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Advanced Animations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-a-reusable-function">Define a reusable function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-constellation">Drawing Constellation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-the-animations">Saving the animations</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="advanced-animations">
+<h1>Advanced Animations<a class="headerlink" href="#advanced-animations" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>ColabTurtlePlus<span class="w"> </span>-q
+<span class="kn">from</span><span class="w"> </span><span class="nn">ColabTurtlePlus.Turtle</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Put clearscreen() as the first line in a cell (after the import command) to re-run turtle commands in the cell
+</pre></div>
+</div>
+</div>
+</div>
+<section id="define-a-reusable-function">
+<h2>Define a reusable function<a class="headerlink" href="#define-a-reusable-function" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">draw_star</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Draw a filled 5-point star centered at (x, y) with given size.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Geometry setup</span>
+    <span class="n">outer_radius</span> <span class="o">=</span> <span class="n">size</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">inner_radius</span> <span class="o">=</span> <span class="n">outer_radius</span> <span class="o">*</span> <span class="mf">0.5</span>  <span class="c1"># ratio controls inner points (can tweak)</span>
+
+    <span class="c1"># Move to first outer point</span>
+    <span class="n">penup</span><span class="p">()</span>
+    <span class="n">goto</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">outer_radius</span><span class="p">)</span>
+    <span class="n">setheading</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+    <span class="n">pendown</span><span class="p">()</span>
+    <span class="n">begin_fill</span><span class="p">()</span>
+
+    <span class="c1"># Draw 10-point polygon (alternating outer and inner vertices)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">):</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+        <span class="n">angle_deg</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">36</span>  <span class="c1"># 360 / 10 = 36°</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">outer_radius</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">inner_radius</span>
+        <span class="n">x_i</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">r</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">angle_deg</span><span class="p">))</span>
+        <span class="n">y_i</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">r</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">angle_deg</span><span class="p">))</span>
+        <span class="n">goto</span><span class="p">(</span><span class="n">x_i</span><span class="p">,</span> <span class="n">y_i</span><span class="p">)</span>
+
+    <span class="n">end_fill</span><span class="p">()</span>
+    <span class="n">penup</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">draw_line</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">):</span>
+    <span class="n">penup</span><span class="p">()</span>
+    <span class="n">goto</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span>
+    <span class="n">pendown</span><span class="p">()</span>
+    <span class="n">goto</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># === Example usage ===</span>
+<span class="n">clearscreen</span><span class="p">()</span>
+<span class="n">initializeTurtle</span><span class="p">()</span>
+<span class="n">speed</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">bgcolor</span><span class="p">(</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
+<span class="n">color</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
+<span class="n">draw_star</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">color</span><span class="p">(</span><span class="s2">&quot;deepskyblue&quot;</span><span class="p">)</span>
+<span class="n">draw_star</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">color</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+<span class="n">draw_star</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+<span class="n">hideturtle</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+      <svg width="800" height="600">  
+        <rect width="100%" height="100%" style="fill:black;stroke:;stroke-width:1"/>
+        
+        
+        <path fill-rule="evenodd" fill-opacity="1" d="M 300.0 190.0  L 302.939 195.955  L 309.511 196.91  L 304.755 201.545  L 305.878 208.09  L 300.0 205.0  L 294.122 208.09  L 295.245 201.545  L 290.489 196.91  L 297.061 195.955 " stroke-linecap="round" style="stroke:gold;stroke-width:1" fill="gold" /><path fill-rule="evenodd" fill-opacity="1" d="M 500.0 340.0  L 502.939 345.955  L 509.511 346.91  L 504.755 351.545  L 505.878 358.09  L 500.0 355.0  L 494.122 358.09  L 495.245 351.545  L 490.489 346.91  L 497.061 345.955 " stroke-linecap="round" style="stroke:deepskyblue;stroke-width:1" fill="deepskyblue" /><path fill-rule="evenodd" fill-opacity="1" d="M 400.0 290.0  L 402.939 295.955  L 409.511 296.91  L 404.755 301.545  L 405.878 308.09  L 400.0 305.0  L 394.122 308.09  L 395.245 301.545  L 390.489 296.91  L 397.061 295.955 " stroke-linecap="round" style="stroke:white;stroke-width:1" fill="white" />
+        
+        
+        <g id="classic" visibility="hidden" transform="rotate(180,397.061,295.955) translate(397.061, 295.955)">
+<polygon points="-5,-4.5 0,-2.5 5,-4.5 0,4.5" transform="skewX(0) scale(1,1)" style="stroke:white;fill:white;stroke-width:1" />
+</g>
+      </svg>
+    </div></div>
+</div>
+</section>
+<section id="drawing-constellation">
+<h2>Drawing Constellation<a class="headerlink" href="#drawing-constellation" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Star sizes are &quot;fake magnitudes&quot; just to make bright stars pop a bit</span>
+<span class="c1"># Coordinates are an artist&#39;s layout to resemble Aquarius&#39; shape</span>
+
+<span class="n">stars</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Sadalmelik (Alpha)&quot;</span><span class="p">:</span>   <span class="p">(</span><span class="o">-</span><span class="mi">240</span><span class="p">,</span>  <span class="mi">160</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span>  <span class="c1"># Left shoulder</span>
+    <span class="s2">&quot;Sadalsuud (Beta)&quot;</span><span class="p">:</span>     <span class="p">(</span><span class="o">-</span><span class="mi">160</span><span class="p">,</span>  <span class="mi">180</span><span class="p">,</span> <span class="mi">14</span><span class="p">),</span>  <span class="c1"># Right shoulder (brightest)</span>
+    <span class="s2">&quot;Sadachbia (Gamma)&quot;</span><span class="p">:</span>    <span class="p">(</span><span class="o">-</span><span class="mi">120</span><span class="p">,</span>   <span class="mi">80</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span>  <span class="c1"># Water jar</span>
+    <span class="s2">&quot;Zeta (Zeta)&quot;</span><span class="p">:</span>          <span class="p">(</span><span class="o">-</span><span class="mi">200</span><span class="p">,</span>  <span class="mi">120</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>  <span class="c1"># Near Sadalmelik</span>
+    <span class="s2">&quot;Eta (Eta)&quot;</span><span class="p">:</span>            <span class="p">(</span> <span class="o">-</span><span class="mi">80</span><span class="p">,</span>   <span class="mi">30</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>  <span class="c1"># Part of water jar</span>
+    <span class="s2">&quot;Albali (Epsilon)&quot;</span><span class="p">:</span>     <span class="p">(</span> <span class="o">-</span><span class="mi">40</span><span class="p">,</span>   <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span>  <span class="c1"># Torso / arm</span>
+    <span class="s2">&quot;Ancha (Theta)&quot;</span><span class="p">:</span>        <span class="p">(</span>  <span class="mi">10</span><span class="p">,</span>   <span class="mi">60</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>  <span class="c1"># Upper torso</span>
+    <span class="s2">&quot;Skat (Delta)&quot;</span><span class="p">:</span>         <span class="p">(</span>  <span class="mi">40</span><span class="p">,</span>  <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>  <span class="c1"># Lower torso / leg</span>
+    <span class="s2">&quot;Iota (Iota)&quot;</span><span class="p">:</span>          <span class="p">(</span>  <span class="mi">80</span><span class="p">,</span> <span class="o">-</span><span class="mi">120</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>  <span class="c1"># Lower right</span>
+    <span class="s2">&quot;Tau (Tau)&quot;</span><span class="p">:</span>            <span class="p">(</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span>  <span class="o">-</span><span class="mi">60</span><span class="p">,</span>  <span class="mi">9</span><span class="p">),</span>  <span class="c1"># Lower left</span>
+    <span class="s2">&quot;Lambda (Lambda)&quot;</span><span class="p">:</span>      <span class="p">(</span><span class="o">-</span><span class="mi">300</span><span class="p">,</span>  <span class="mi">100</span><span class="p">,</span>  <span class="mi">9</span><span class="p">),</span>  <span class="c1"># Faint star to left</span>
+<span class="p">}</span>
+
+<span class="c1"># Connections (rough outline of Aquarius constellation)</span>
+<span class="n">connections</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;Lambda (Lambda)&quot;</span><span class="p">,</span> <span class="s2">&quot;Sadalmelik (Alpha)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Sadalmelik (Alpha)&quot;</span><span class="p">,</span> <span class="s2">&quot;Zeta (Zeta)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Zeta (Zeta)&quot;</span><span class="p">,</span> <span class="s2">&quot;Sadalsuud (Beta)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Sadalsuud (Beta)&quot;</span><span class="p">,</span> <span class="s2">&quot;Ancha (Theta)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Ancha (Theta)&quot;</span><span class="p">,</span> <span class="s2">&quot;Albali (Epsilon)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Albali (Epsilon)&quot;</span><span class="p">,</span> <span class="s2">&quot;Skat (Delta)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Skat (Delta)&quot;</span><span class="p">,</span> <span class="s2">&quot;Iota (Iota)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Albali (Epsilon)&quot;</span><span class="p">,</span> <span class="s2">&quot;Eta (Eta)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Eta (Eta)&quot;</span><span class="p">,</span> <span class="s2">&quot;Sadachbia (Gamma)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Sadachbia (Gamma)&quot;</span><span class="p">,</span> <span class="s2">&quot;Zeta (Zeta)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Sadachbia (Gamma)&quot;</span><span class="p">,</span> <span class="s2">&quot;Tau (Tau)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Tau (Tau)&quot;</span><span class="p">,</span> <span class="s2">&quot;Skat (Delta)&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ========== Draw ==========</span>
+<span class="n">clearscreen</span><span class="p">()</span>
+<span class="n">initializeTurtle</span><span class="p">()</span>
+<span class="n">speed</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">bgcolor</span><span class="p">(</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># Draw stars (dots + labels)</span>
+
+<span class="n">pencolor</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
+<span class="n">fillcolor</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
+<span class="n">pensize</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span> <span class="ow">in</span> <span class="n">stars</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">draw_star</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># Draw constellation lines</span>
+<span class="n">pencolor</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+<span class="n">pensize</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">connections</span><span class="p">:</span>
+    <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">stars</span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+    <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">stars</span><span class="p">[</span><span class="n">b</span><span class="p">]</span>
+    <span class="n">draw_line</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+
+<span class="c1"># Write some text</span>
+<span class="n">penup</span><span class="p">()</span>
+<span class="n">goto</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">pencolor</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">)</span>
+<span class="n">write</span><span class="p">(</span><span class="s2">&quot;Constellation Aquarius by Yongxin&quot;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;normal&quot;</span><span class="p">))</span>
+
+<span class="n">hideturtle</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+      <svg width="800" height="600">  
+        <rect width="100%" height="100%" style="fill:black;stroke:;stroke-width:1"/>
+        
+        
+        <path fill-rule="evenodd" fill-opacity="1" d="M 160.0 130.0  L 162.939 135.955  L 169.511 136.91  L 164.755 141.545  L 165.878 148.09  L 160.0 145.0  L 154.122 148.09  L 155.245 141.545  L 150.489 136.91  L 157.061 135.955 " stroke-linecap="round" style="stroke:gold;stroke-width:1" fill="gold" /><path fill-rule="evenodd" fill-opacity="1" d="M 240.0 110.0  L 242.939 115.955  L 249.511 116.91  L 244.755 121.545  L 245.878 128.09  L 240.0 125.0  L 234.122 128.09  L 235.245 121.545  L 230.489 116.91  L 237.061 115.955 " stroke-linecap="round" style="stroke:gold;stroke-width:1" fill="gold" /><path fill-rule="evenodd" fill-opacity="1" d="M 280.0 210.0  L 282.939 215.955  L 289.511 216.91  L 284.755 221.545  L 285.878 228.09  L 280.0 225.0  L 274.122 228.09  L 275.245 221.545  L 270.489 216.91  L 277.061 215.955 " stroke-linecap="round" style="stroke:gold;stroke-width:1" fill="gold" /><path fill-rule="evenodd" fill-opacity="1" d="M 200.0 170.0  L 202.939 175.955  L 209.511 176.91  L 204.755 181.545  L 205.878 188.09  L 200.0 185.0  L 194.122 188.09  L 195.245 181.545  L 190.489 176.91  L 197.061 175.955 " stroke-linecap="round" style="stroke:gold;stroke-width:1" fill="gold" /><path fill-rule="evenodd" fill-opacity="1" d="M 320.0 260.0  L 322.939 265.955  L 329.511 266.91  L 324.755 271.545  L 325.878 278.09  L 320.0 275.0  L 314.122 278.09  L 315.245 271.545  L 310.489 266.91  L 317.061 265.955 " stroke-linecap="round" style="stroke:gold;stroke-width:1" fill="gold" /><path fill-rule="evenodd" fill-opacity="1" d="M 360.0 280.0  L 362.939 285.955  L 369.511 286.91  L 364.755 291.545  L 365.878 298.09  L 360.0 295.0  L 354.122 298.09  L 355.245 291.545  L 350.489 286.91  L 357.061 285.955 " stroke-linecap="round" style="stroke:gold;stroke-width:1" fill="gold" /><path fill-rule="evenodd" fill-opacity="1" d="M 410.0 230.0  L 412.939 235.955  L 419.511 236.91  L 414.755 241.545  L 415.878 248.09  L 410.0 245.0  L 404.122 248.09  L 405.245 241.545  L 400.489 236.91  L 407.061 235.955 " stroke-linecap="round" style="stroke:gold;stroke-width:1" fill="gold" /><path fill-rule="evenodd" fill-opacity="1" d="M 440.0 300.0  L 442.939 305.955  L 449.511 306.91  L 444.755 311.545  L 445.878 318.09  L 440.0 315.0  L 434.122 318.09  L 435.245 311.545  L 430.489 306.91  L 437.061 305.955 " stroke-linecap="round" style="stroke:gold;stroke-width:1" fill="gold" /><path fill-rule="evenodd" fill-opacity="1" d="M 480.0 410.0  L 482.939 415.955  L 489.511 416.91  L 484.755 421.545  L 485.878 428.09  L 480.0 425.0  L 474.122 428.09  L 475.245 421.545  L 470.489 416.91  L 477.061 415.955 " stroke-linecap="round" style="stroke:gold;stroke-width:1" fill="gold" /><path fill-rule="evenodd" fill-opacity="1" d="M 390.0 350.0  L 392.939 355.955  L 399.511 356.91  L 394.755 361.545  L 395.878 368.09  L 390.0 365.0  L 384.122 368.09  L 385.245 361.545  L 380.489 356.91  L 387.061 355.955 " stroke-linecap="round" style="stroke:gold;stroke-width:1" fill="gold" /><path fill-rule="evenodd" fill-opacity="1" d="M 100.0 190.0  L 102.939 195.955  L 109.511 196.91  L 104.755 201.545  L 105.878 208.09  L 100.0 205.0  L 94.122 208.09  L 95.245 201.545  L 90.489 196.91  L 97.061 195.955 " stroke-linecap="round" style="stroke:gold;stroke-width:1" fill="gold" /><line x1="100.0" y1="200.0" x2="160.0" y2="140.0" stroke-linecap="round" style="stroke:white;stroke-width:2" /><line x1="160.0" y1="140.0" x2="200.0" y2="180.0" stroke-linecap="round" style="stroke:white;stroke-width:2" /><line x1="200.0" y1="180.0" x2="240.0" y2="120.0" stroke-linecap="round" style="stroke:white;stroke-width:2" /><line x1="240.0" y1="120.0" x2="410.0" y2="240.0" stroke-linecap="round" style="stroke:white;stroke-width:2" /><line x1="410.0" y1="240.0" x2="360.0" y2="290.0" stroke-linecap="round" style="stroke:white;stroke-width:2" /><line x1="360.0" y1="290.0" x2="440.0" y2="310.0" stroke-linecap="round" style="stroke:white;stroke-width:2" /><line x1="440.0" y1="310.0" x2="480.0" y2="420.0" stroke-linecap="round" style="stroke:white;stroke-width:2" /><line x1="360.0" y1="290.0" x2="320.0" y2="270.0" stroke-linecap="round" style="stroke:white;stroke-width:2" /><line x1="320.0" y1="270.0" x2="280.0" y2="220.0" stroke-linecap="round" style="stroke:white;stroke-width:2" /><line x1="280.0" y1="220.0" x2="200.0" y2="180.0" stroke-linecap="round" style="stroke:white;stroke-width:2" /><line x1="280.0" y1="220.0" x2="390.0" y2="360.0" stroke-linecap="round" style="stroke:white;stroke-width:2" /><line x1="390.0" y1="360.0" x2="440.0" y2="310.0" stroke-linecap="round" style="stroke:white;stroke-width:2" /><text x="300.0" y="450.0" fill="gold" text-anchor="start" style="font-size:15px;font-family:'Arial';">Constellation Aquarius by Yongxin</text>
+        
+        
+        <g id="classic" visibility="hidden" transform="rotate(180,300.0,450.0) translate(300.0, 450.0)">
+<polygon points="-5,-4.5 0,-2.5 5,-4.5 0,4.5" transform="skewX(0) scale(1,1)" style="stroke:gold;fill:gold;stroke-width:1" />
+</g>
+      </svg>
+    </div></div>
+</div>
+</section>
+<section id="saving-the-animations">
+<h2>Saving the animations<a class="headerlink" href="#saving-the-animations" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Start screen recording after running this cell</span>
+<span class="c1"># Mac: Shift + Cmd + 5 or Screenshot.app → Record Selected Portion</span>
+<span class="c1"># Windows: Win + G or Snipping Tool</span>
+<span class="c1"># Wait 5 seconds to prepare before the animation starts</span>
+
+<span class="n">delay</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+
+<span class="c1"># Put your animation code below</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "yongxinlyu/PPLE",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./learning_resources"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="turtle-animation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Creating Animations</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="high-frequency-words.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Word Frequency</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-a-reusable-function">Define a reusable function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drawing-constellation">Drawing Constellation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-the-animations">Saving the animations</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yongxin Lyu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
