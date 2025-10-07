@@ -12,4 +12,5 @@ parts:
   - file: learning_resources/python-basics
   - file: learning_resources/plot-figures
   - file: learning_resources/turtle-animation
+  - file: learning_resources/advanced-turtle-animation
   - file: learning_resources/high-frequency-words
