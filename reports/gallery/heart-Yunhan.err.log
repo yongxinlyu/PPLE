@@ -30,7 +30,7 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['!pip install ColabTurtlePlus', 'from ColabTurtlePlus.Turtle import *', 'from ColabTurtlePlus.Turtle import Turtle', '', 't=Turtle()']
+['!pip install ColabTurtlePlus', 'from ColabTurtlePlus.Turtle import *', 'from ColabTurtlePlus.Turtle import Turtle', '', 'speed(13)']
 ...
 ['t.fd(40)', 't.left(90)', 't.end_fill()', 't.ht()', 'hideturtle()']
 -------------------
