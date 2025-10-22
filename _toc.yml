@@ -14,8 +14,8 @@ parts:
   - file: learning_resources/turtle-animation
   - file: learning_resources/advanced-turtle-animation
   - file: learning_resources/high-frequency-words
-  
+
 - caption: Gallery
   numbered: false
   chapters:
-  - file: gallery/heart
+  - file: gallery/heart-Yunhan
