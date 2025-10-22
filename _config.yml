@@ -1,14 +1,16 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Personalised Programming Language Enhancement
+title: Coding Club for Dummies
 author: Yongxin Lyu
 logo: logo.png
+copyright: "2025"
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: force
+  timeout: 60
 
 # Define the name of the latex output file for PDF builds
 latex:

@@ -1,1 +1,1 @@
-# test-course-website
+# coding for dummies club website
