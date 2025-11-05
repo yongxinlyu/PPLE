@@ -28,3 +28,4 @@ parts:
   - file: gallery/dog-Jason
   - file: gallery/cinnamoroll-Risa
   - file: gallery/cat-Yuhua
+  - file: gallery/cat-Jason
